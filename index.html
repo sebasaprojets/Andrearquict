@@ -70,22 +70,30 @@ em{font-style:italic}
 .menu-side{border-left:1px solid rgba(228,194,127,.25);padding-left:4vw;color:#A79E92;font-size:15px}
 .menu-side img{width:100%;max-width:320px;aspect-ratio:4/5;object-fit:cover;object-position:top;margin-bottom:24px;filter:grayscale(.2)}
 
-/* preloader */
-.pre{position:fixed;inset:0;z-index:200;pointer-events:none}
-.pre .half{position:absolute;left:0;right:0;height:50.5%;background:var(--night)}
-.pre .top{top:0}.pre .bot{bottom:0}
-.pre .line{position:absolute;left:12vw;right:12vw;top:50%;height:1px;background:var(--gold);transform:scaleX(0);transform-origin:left}
-.pre .count{position:absolute;right:12vw;top:calc(50% + 22px);font:400 13px var(--f-caps);letter-spacing:.32em;color:var(--gold-light)}
-.pre .name{position:absolute;left:12vw;top:calc(50% + 22px);font:400 13px var(--f-caps);letter-spacing:.32em;color:var(--cream);overflow:hidden}
-.pre .name span{display:inline-block}
+/* intro HUD (blueprint) */
+.hud{position:absolute;inset:0;z-index:2;pointer-events:none;color:#7d746a;font:400 10px var(--f-caps);letter-spacing:.3em;text-transform:uppercase}
+.hud .grid{position:absolute;inset:0;background-image:linear-gradient(rgba(228,194,127,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(228,194,127,.07) 1px,transparent 1px);background-size:64px 64px;mask-image:radial-gradient(ellipse at 50% 50%,#000 10%,transparent 70%);-webkit-mask-image:radial-gradient(ellipse at 50% 50%,#000 10%,transparent 70%);opacity:0}
+.hud .corner{position:absolute;width:22px;height:22px;border-color:rgba(228,194,127,.55);border-style:solid;opacity:0}
+.hud .c1{top:96px;left:48px;border-width:1px 0 0 1px}.hud .c2{top:96px;right:48px;border-width:1px 1px 0 0}
+.hud .c3{bottom:110px;left:48px;border-width:0 0 1px 1px}.hud .c4{bottom:110px;right:48px;border-width:0 1px 1px 0}
+.hud .meta{position:absolute;left:50%;bottom:118px;transform:translateX(-50%);display:flex;gap:40px;align-items:center;white-space:nowrap}
+.hud .meta .bar{width:120px;height:1px;background:rgba(228,194,127,.18);position:relative;overflow:hidden}
+.hud .meta .bar i{position:absolute;inset:0;background:var(--gold-light);transform:scaleX(0);transform-origin:left}
+.hud .meta b{color:var(--gold-light);font-weight:400;min-width:3ch;display:inline-block}
+.hud .meta span{overflow:hidden;display:inline-block}
+.hud .meta span>em{font-style:normal;display:inline-block}
+#dust{position:absolute;inset:0;z-index:1;pointer-events:none;opacity:0}
+.nav{opacity:0}
 
 /* HERO */
 .hero{height:100vh;position:relative;background:var(--night);color:var(--cream);overflow:hidden}
 .hero::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 50% 45%,rgba(184,135,59,.16),transparent 60%);pointer-events:none}
 .city{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;will-change:transform;padding-bottom:6vh}
-.logo-svg{width:min(980px,92vw);overflow:visible}
-.wordmark{font:400 clamp(26px,4.4vw,64px)/1 var(--f-caps);letter-spacing:.16em;margin-top:2vh;text-align:center;overflow:hidden;text-transform:uppercase}
-.wordmark span{display:inline-block}
+.city{z-index:3}
+.logo-svg{width:min(760px,86vw);overflow:visible}
+.wordmark{font:400 clamp(26px,4.2vw,60px)/1 var(--f-caps);letter-spacing:.18em;margin-top:3.2vh;text-align:center;text-transform:uppercase;white-space:nowrap;padding-left:.18em}
+.wordmark .ch{display:inline-block;will-change:transform,filter,opacity}
+.wm-rule{width:min(560px,70vw);height:1px;margin-top:2.4vh;background:linear-gradient(90deg,transparent,var(--gold),transparent);transform:scaleX(0)}
 .tagline-caps{margin-top:2.2vh;color:#C9BDAE;font-size:clamp(9px,1vw,13px);display:flex;gap:18px;align-items:center;overflow:hidden;flex-wrap:wrap;justify-content:center}
 .tagline-caps b{color:var(--gold);font-weight:400}
 .hero-foot{position:absolute;left:48px;right:48px;bottom:40px;display:flex;justify-content:space-between;align-items:flex-end;z-index:3;gap:24px}
@@ -266,17 +274,10 @@ footer a:hover{color:var(--gold-light)}
 <div class="cursor" id="cursor"></div>
 <div class="grain" aria-hidden="true"></div>
 
-<!-- PRELOADER -->
-<div class="pre" id="pre" aria-hidden="true">
-  <div class="half top"></div><div class="half bot"></div>
-  <div class="line"></div>
-  <div class="name"><span>Andrea Andrade</span></div>
-  <div class="count"><span id="cnt">000</span></div>
-</div>
 
 <header class="nav">
   <a href="#top" class="nav-logo" aria-label="Inicio">
-    <svg viewBox="0 0 120 70" fill="none"><text x="48" y="62" text-anchor="middle" font-family="Cormorant Garamond" font-weight="500" font-size="78" letter-spacing="-14" fill="currentColor">AA</text><path d="M14 62 C 34 40, 62 30, 88 34" stroke="currentColor" stroke-width="2.4"/><path d="M90 64 V22 L100 28 V64 M104 64 V36 L112 40 V64" stroke="currentColor" stroke-width="1.6"/></svg>
+    <svg viewBox="250 40 520 220" fill="none"><g font-family="Cormorant Garamond" font-weight="600" font-size="250" fill="currentColor"><text x="352" y="250" text-anchor="middle">A</text><text x="482" y="250" text-anchor="middle">A</text></g><path d="M268 250 C 340 196, 470 138, 640 146 C 600 150, 470 166, 300 244 Z" fill="currentColor"/><g stroke="currentColor" stroke-width="6"><path d="M590 250 V172 L616 161 V250"/><path d="M628 250 V86 L660 106 V250"/><path d="M672 250 V130 L706 149 V250"/><path d="M718 250 V196 L738 208 V250"/></g></svg>
     <span>Andrea Andrade</span>
   </a>
   <button class="menu-btn" id="menuBtn" aria-label="Abrir menú">Menú <i></i></button>
@@ -298,23 +299,46 @@ footer a:hover{color:var(--gold-light)}
 
 <!-- HERO -->
 <section class="hero" id="top">
+  <canvas id="dust" aria-hidden="true"></canvas>
+  <div class="hud" aria-hidden="true">
+    <div class="grid"></div>
+    <span class="corner c1"></span><span class="corner c2"></span><span class="corner c3"></span><span class="corner c4"></span>
+    <div class="meta" id="meta"><span><em>Buenos Aires</em></span><div class="bar"><i id="metaBar"></i></div><span><em><b id="cnt">000</b></em></span><div class="bar"><i id="metaBar2"></i></div><span><em>Esc. 1:100</em></span></div>
+  </div>
   <div class="city" id="city">
-    <svg class="logo-svg" viewBox="0 0 1000 290" fill="none" aria-label="Andrea Andrade">
+    <svg class="logo-svg" viewBox="40 30 920 250" fill="none" role="img" aria-label="Andrea Andrade">
       <defs>
-        <linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#8C5F22"/><stop offset=".45" stop-color="#E4C27F"/><stop offset=".7" stop-color="#B8873B"/><stop offset="1" stop-color="#8C5F22"/></linearGradient>
+        <linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#8C5F22"/><stop offset=".35" stop-color="#E4C27F"/><stop offset=".6" stop-color="#C7964A"/><stop offset="1" stop-color="#8C5F22"/></linearGradient>
+        <linearGradient id="gv" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#8C5F22"/><stop offset="1" stop-color="#E4C27F"/></linearGradient>
+        <linearGradient id="hzG" gradientUnits="userSpaceOnUse" x1="60" y1="0" x2="940" y2="0"><stop offset="0" stop-color="#B8873B" stop-opacity="0"/><stop offset=".25" stop-color="#B8873B"/><stop offset=".75" stop-color="#B8873B"/><stop offset="1" stop-color="#B8873B" stop-opacity="0"/></linearGradient>
+        <linearGradient id="sheen" gradientUnits="userSpaceOnUse" x1="-400" y1="0" x2="-150" y2="0"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#FFF4D8" stop-opacity=".95"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+        <clipPath id="above"><rect x="0" y="0" width="1000" height="250"/></clipPath>
+        <clipPath id="arcClip"><rect id="arcRect" x="250" y="100" width="0" height="160"/></clipPath>
+        <g id="aaShape" font-family="Cormorant Garamond" font-weight="600" font-size="250"><text x="352" y="250" text-anchor="middle">A</text><text x="482" y="250" text-anchor="middle">A</text></g>
+        <path id="arcShape" d="M268 250 C 340 196, 470 138, 640 146 C 600 150, 470 166, 300 244 C 290 248, 278 250, 268 250 Z"/>
       </defs>
-      <path class="hz" d="M0 262 H1000" stroke="url(#g)" stroke-width="1.6"/>
-      <text class="aa" x="462" y="263" text-anchor="middle" font-family="Cormorant Garamond" font-weight="500" font-size="300" letter-spacing="-52" fill="#F6F0E6">AA</text>
-      <path class="arcp" d="M262 262 C 330 215, 470 140, 655 152" stroke="url(#g)" stroke-width="7" stroke-linecap="round"/>
-      <g class="bld" stroke="url(#g)" stroke-width="2.4">
-        <path class="b" d="M636 262 V176 L664 164 V262 M642 262 V182 L658 175"/>
-        <path class="b" d="M674 262 V96 L708 118 V262 M680 262 V108 L702 122"/>
-        <path class="b" d="M716 262 V140 L752 160 V262 M722 262 V152 L746 165"/>
-        <path class="b" d="M766 262 V210 L786 222 V262"/>
-      </g>
-      <rect id="win" x="684" y="150" width="14" height="20" fill="#E4C27F" opacity="0"/>
+      <!-- dimension line / horizon -->
+      <path class="hz" d="M500 250 H60" stroke="url(#hzG)" stroke-width="1.2"/>
+      <path class="hz" d="M500 250 H940" stroke="url(#hzG)" stroke-width="1.2"/>
+      <g class="ticks" stroke="#B8873B" stroke-width="1" opacity="0"><path d="M150 243 V257 M850 243 V257"/></g>
+      <!-- AA rising from the horizon -->
+      <g clip-path="url(#above)"><g class="px-aa"><g class="aa" fill="#F6F0E6"><use href="#aaShape"/></g></g></g>
+      <!-- buildings -->
+      <g class="px-bld"><g class="bld" stroke="url(#gv)" stroke-width="2.2" stroke-linejoin="miter">
+        <path class="b" d="M590 250 V172 L616 161 V250"/><path class="b bi" d="M596 250 V178 L610 172" stroke-width="1"/>
+        <path class="b" d="M628 250 V86 L660 106 V250"/><path class="b bi" d="M634 250 V97 L654 110" stroke-width="1"/>
+        <path class="b" d="M672 250 V130 L706 149 V250"/><path class="b bi" d="M678 250 V141 L700 153" stroke-width="1"/>
+        <path class="b" d="M718 250 V196 L738 208 V250"/>
+      </g></g>
+      <rect id="win" x="638" y="150" width="12" height="16" fill="#E4C27F" opacity="0"/>
+      <!-- gold swoosh -->
+      <g class="px-arc"><g clip-path="url(#arcClip)"><use href="#arcShape" fill="url(#g)"/></g></g>
+      <!-- sheen pass -->
+      <g clip-path="url(#above)" style="mix-blend-mode:screen" pointer-events="none"><use href="#aaShape" fill="url(#sheen)" class="px-aa"/></g>
+      <use href="#arcShape" fill="url(#sheen)" style="mix-blend-mode:screen" pointer-events="none" class="px-arc"/>
     </svg>
-    <div class="wordmark"><span>Andrea Andrade</span></div>
+    <div class="wordmark" id="wordmark">Andrea Andrade</div>
+    <div class="wm-rule" id="wmRule"></div>
     <div class="tagline-caps caps"><span>Arquitectura</span><b>•</b><span>Real Estate</span><b>•</b><span>Desarrollo Profesional</span></div>
   </div>
   <div class="hero-foot" id="heroFoot">
@@ -538,38 +562,67 @@ menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{if(open)to
 
 /* svg stroke prep */
 function prep(sel){document.querySelectorAll(sel).forEach(p=>{const L=p.getTotalLength();p.style.strokeDasharray=L;p.style.strokeDashoffset=L})}
-prep('.hz,.arcp,.b,#arc2');
-gsap.set('.aa',{opacity:0,y:30});
-gsap.set('.wordmark span',{yPercent:110});
+prep('.hz,.b,#arc2');
+const wm=document.getElementById('wordmark');
+wm.innerHTML=wm.textContent.split('').map(ch=>ch===' '?'<span class="ch">&nbsp;</span>':`<span class="ch">${ch}</span>`).join('');
+gsap.set('.aa',{y:230});
+gsap.set('.wordmark .ch',{opacity:0,y:24,filter:'blur(10px)'});
 gsap.set('.tagline-caps > *',{opacity:0,y:14});
 gsap.set('#heroFoot,#cue',{opacity:0,y:24});
 gsap.set('#heroTitle .ln>span',{yPercent:115});
-gsap.set('.pre .name span',{yPercent:110});
+gsap.set('.hud .meta span>em',{yPercent:110});
 
-/* INTRO: preloader → logo builds */
-const intro=gsap.timeline({onComplete:()=>{lenis.start();gsap.to('#wa',{scale:1,duration:.8,ease:'back.out(2)'})}});
+/* gold dust */
+(function(){
+  const cv=document.getElementById('dust');if(reduce||!cv)return;const x=cv.getContext('2d');let W,H,P=[];const dpr=Math.min(devicePixelRatio,2);
+  function rs(){W=cv.width=innerWidth*dpr;H=cv.height=innerHeight*dpr;cv.style.width=innerWidth+'px';cv.style.height=innerHeight+'px'}
+  rs();addEventListener('resize',rs);
+  const N=mobile?40:90;for(let i=0;i<N;i++)P.push({x:Math.random(),y:Math.random(),r:Math.random()*1.6+.3,s:Math.random()*.00035+.00008,a:Math.random()*Math.PI*2,t:Math.random()*.02+.005});
+  let run=true;ScrollTrigger.create({trigger:'.hero',start:'top top',end:'+=260%',onLeave:()=>run=false,onEnterBack:()=>{run=true;loop()}});
+  function loop(){if(!run)return;x.clearRect(0,0,W,H);for(const p of P){p.y-=p.s;p.a+=p.t;if(p.y<-.02){p.y=1.02;p.x=Math.random()}
+    const al=.25+Math.sin(p.a)*.25+.2;x.beginPath();x.arc(p.x*W+Math.sin(p.a*.5)*6*dpr,p.y*H,p.r*dpr,0,7);x.fillStyle=`rgba(228,194,127,${al})`;x.fill()}
+    requestAnimationFrame(loop)}
+  loop();
+})();
+
+/* INTRO: blueprint → construction → brand */
+const intro=gsap.timeline({delay:.25,defaults:{ease:'expo.out'},onComplete:()=>{lenis.start();gsap.to('#wa',{scale:1,duration:.8,ease:'back.out(2)'})}});
 const c={v:0};
-intro.to('.pre .name span',{yPercent:0,duration:.9,ease:'power4.out'})
- .to('.pre .line',{scaleX:1,duration:1.5,ease:'power3.inOut'},0)
- .to(c,{v:100,duration:1.5,ease:'power2.inOut',onUpdate:()=>document.getElementById('cnt').textContent=String(Math.round(c.v)).padStart(3,'0')},0)
- .to('.pre .count,.pre .name',{opacity:0,duration:.3})
- .to('.pre .top',{yPercent:-100,duration:1.2,ease:'expo.inOut'},'split')
- .to('.pre .bot',{yPercent:100,duration:1.2,ease:'expo.inOut'},'split')
- .to('.pre .line',{opacity:0,duration:.5},'split')
- .to('.hz',{strokeDashoffset:0,duration:1.4,ease:'power3.inOut'},'split+=.2')
- .to('.aa',{opacity:1,y:0,duration:1.4,ease:'power4.out'},'split+=.55')
- .to('.arcp',{strokeDashoffset:0,duration:1.3,ease:'power3.inOut'},'split+=.8')
- .to('.b',{strokeDashoffset:0,stagger:.14,duration:1.3,ease:'power2.inOut'},'split+=1')
- .to('.wordmark span',{yPercent:0,duration:1.2,ease:'power4.out'},'split+=1.25')
- .to('.tagline-caps > *',{opacity:1,y:0,stagger:.06,duration:.9,ease:'power3.out'},'split+=1.5')
- .to('#heroFoot,#cue',{opacity:1,y:0,duration:1,ease:'power3.out'},'split+=1.7')
- .set('.pre',{display:'none'});
+intro
+ .to('.hud .grid',{opacity:1,duration:1.6,ease:'power2.out'},0)
+ .to('.hud .corner',{opacity:1,duration:.8,stagger:.08,ease:'power2.out'},.1)
+ .from('.hud .corner',{scale:1.8,duration:1.2,stagger:.08},.1)
+ .to('.hud .meta span>em',{yPercent:0,duration:1,stagger:.08},.2)
+ .to(c,{v:100,duration:2.6,ease:'power2.inOut',onUpdate:()=>document.getElementById('cnt').textContent=String(Math.round(c.v)).padStart(3,'0')},.2)
+ .to('#metaBar,#metaBar2',{scaleX:1,duration:2.6,ease:'power2.inOut'},.2)
+ .to('.hz',{strokeDashoffset:0,duration:1.8,ease:'expo.inOut'},.35)
+ .to('.ticks',{opacity:.7,duration:.6,ease:'power2.out'},1.5)
+ .to('.b',{strokeDashoffset:0,duration:1.4,stagger:{each:.1,from:'start'},ease:'power3.inOut'},1.05)
+ .to('.aa',{y:0,duration:1.9},1.25)
+ .to('#arcRect',{attr:{width:420},duration:1.5,ease:'power3.inOut'},1.9)
+ .to('.wordmark .ch',{opacity:1,y:0,filter:'blur(0px)',duration:1.3,stagger:.035},2.4)
+ .to('#wmRule',{scaleX:1,duration:1.4,ease:'expo.inOut'},2.7)
+ .to('.tagline-caps > *',{opacity:1,y:0,stagger:.06,duration:1},2.9)
+ .to('#sheen',{attr:{x1:1000,x2:1250},duration:1.8,ease:'power2.inOut'},3)
+ .to('.hud .meta,.ticks,.hud .corner',{opacity:0,duration:.8,ease:'power2.out'},3.1)
+ .to('.hud .grid',{opacity:.35,duration:1.2,ease:'power2.out'},3.1)
+ .to('#dust',{opacity:1,duration:2,ease:'power2.out'},2.6)
+ .to('.nav',{opacity:1,duration:1,ease:'power2.out'},3.3)
+ .to('#heroFoot,#cue',{opacity:1,y:0,duration:1.2},3.4);
 if(reduce) intro.progress(1);
+['wheel','touchstart','keydown'].forEach(ev=>addEventListener(ev,()=>{if(intro.isActive())intro.timeScale(3.5)},{once:true,passive:true}));
+
+/* logo mouse parallax */
+if(!mobile&&!reduce){
+  const layers=[['.px-bld',14],['.px-arc',9],['.px-aa',5]].map(([s,d])=>({els:document.querySelectorAll(s),d}));
+  addEventListener('mousemove',e=>{const nx=e.clientX/innerWidth-.5,ny=e.clientY/innerHeight-.5;
+    layers.forEach(l=>gsap.to(l.els,{x:nx*l.d,y:ny*l.d*.6,duration:1.2,ease:'power3.out'}))});
+}
 
 /* HERO: zoom through window into interior */
 function winOrigin(){const w=document.getElementById('win').getBoundingClientRect(),c=document.getElementById('city').getBoundingClientRect();return `${w.left+w.width/2-c.left}px ${w.top+w.height/2-c.top}px`}
 const heroTl=gsap.timeline({scrollTrigger:{trigger:'.hero',start:'top top',end:mobile?'+=150%':'+=260%',pin:true,scrub:1,invalidateOnRefresh:true}});
-heroTl.to('#heroFoot,#cue,.wordmark,.tagline-caps',{opacity:0,y:-40,duration:.2},0)
+heroTl.to('#heroFoot,#cue,.wordmark,.tagline-caps,#wmRule,.hud',{opacity:0,y:-40,duration:.2},0)
  .to('#win',{opacity:1,duration:.08},.08)
  .to('#city',{scale:mobile?30:46,transformOrigin:winOrigin,ease:'power3.in',duration:1},.12)
  .to('#interior',{clipPath:'inset(0% 0% 0% 0%)',ease:'power2.inOut',duration:.45},.7)
