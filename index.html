@@ -1,0 +1,672 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Andrea Andrade · Arquitectura · Real Estate · Desarrollo Profesional</title>
+<meta name="description" content="Andrea Andrade, arquitecta y agente inmobiliaria en Buenos Aires. Compra, venta, alquileres temporarios e inversión con mirada de arquitecta. Mentorías para agentes.">
+<meta property="og:title" content="Andrea Andrade · Arquitectura · Real Estate">
+<meta property="og:description" content="Experiencia que inspira. Trayectoria que enseña.">
+<meta property="og:image" content="assets/interior-hero.jpg">
+<meta name="theme-color" content="#0F0E0C">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&family=Marcellus&family=Pinyon+Script&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#F6F0E6;--cream-2:#EDE3D3;--night:#0F0E0C;--night-2:#17150F;--ink:#171512;--ink-2:#5B534A;--muted:#8E8478;
+  --gold:#B8873B;--gold-light:#E4C27F;--gold-deep:#8C5F22;
+  --gold-grad:linear-gradient(100deg,#8C5F22 0%,#E4C27F 25%,#B8873B 50%,#E4C27F 75%,#8C5F22 100%);
+  --f-display:"Cormorant Garamond",Georgia,serif;--f-caps:"Marcellus",Georgia,serif;--f-body:"Jost",system-ui,sans-serif;--f-script:"Pinyon Script",cursive;
+  --ease:cubic-bezier(.16,1,.3,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+body{background:var(--cream);color:var(--ink);font-family:var(--f-body);font-weight:300;font-size:18px;line-height:1.65;overflow-x:hidden;transition:background-color .9s,color .9s}
+body.dark{background:var(--night);color:var(--cream)}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1320px;margin:0 auto;padding:0 48px}
+.caps{font-family:var(--f-caps);text-transform:uppercase;letter-spacing:.3em;font-size:12px}
+.gold{background:var(--gold-grad);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent}
+h1,h2,h3{font-family:var(--f-display);font-weight:300;line-height:.98;letter-spacing:-.01em}
+h2{font-size:clamp(46px,6.2vw,104px)}
+em{font-style:italic}
+.ln{display:block;overflow:hidden;padding-bottom:.08em}
+.ln>span{display:inline-block;will-change:transform}
+.eyebrow{display:inline-flex;align-items:center;gap:14px;color:var(--gold)}
+.eyebrow::before{content:"";width:34px;height:1px;background:currentColor}
+
+.btn{display:inline-flex;align-items:center;gap:14px;padding:19px 34px;border:1px solid currentColor;font:400 12px/1 var(--f-caps);letter-spacing:.26em;text-transform:uppercase;position:relative;overflow:hidden;z-index:0;transition:color .5s,border-color .5s;will-change:transform}
+.btn::before{content:"";position:absolute;inset:0;background:var(--gold);transform:translateY(101%);transition:transform .6s var(--ease);z-index:-1}
+.btn:hover{color:var(--night);border-color:var(--gold)}
+.btn:hover::before{transform:none}
+.btn.solid{background:var(--ink);color:var(--cream);border-color:var(--ink)}
+.btn .ar{transition:transform .4s var(--ease)}
+.btn:hover .ar{transform:translateX(5px)}
+
+/* cursor + grain */
+.cursor{position:fixed;left:0;top:0;width:12px;height:12px;border-radius:50%;background:var(--gold);pointer-events:none;z-index:999;transform:translate(-50%,-50%);display:grid;place-items:center;font:500 10px var(--f-caps);letter-spacing:.18em;color:var(--night);text-transform:uppercase;transition:width .45s var(--ease),height .45s var(--ease),background .3s}
+.cursor.big{width:84px;height:84px;background:rgba(228,194,127,.92)}
+@media (hover:none){.cursor{display:none}}
+.grain{position:fixed;inset:-50%;pointer-events:none;z-index:998;opacity:.06;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");animation:grain 1s steps(6) infinite}
+@keyframes grain{0%{transform:translate(0,0)}30%{transform:translate(-5%,3%)}60%{transform:translate(4%,-4%)}100%{transform:translate(-2%,5%)}}
+
+/* nav */
+.nav{position:fixed;top:0;left:0;right:0;z-index:90;display:flex;justify-content:space-between;align-items:center;padding:26px 48px;color:var(--cream);mix-blend-mode:difference;pointer-events:none}
+.nav>*{pointer-events:auto}
+.nav-logo{display:flex;align-items:center;gap:14px;font:400 13px var(--f-caps);letter-spacing:.32em}
+.nav-logo svg{width:44px;height:auto}
+.menu-btn{background:none;border:0;color:inherit;font:400 12px var(--f-caps);letter-spacing:.3em;cursor:pointer;display:flex;align-items:center;gap:14px;text-transform:uppercase}
+.menu-btn i{display:block;width:28px;height:1px;background:currentColor;position:relative;transition:.5s var(--ease)}
+.menu-btn i::after{content:"";position:absolute;left:0;top:6px;width:100%;height:1px;background:currentColor;transition:.5s var(--ease)}
+.menu-open .menu-btn i{transform:rotate(45deg) translate(2px,2px)}
+.menu-open .menu-btn i::after{transform:rotate(-90deg) translate(6px,0)}
+.menu{position:fixed;inset:0;background:var(--night);color:var(--cream);z-index:89;clip-path:inset(0 0 100% 0);display:grid;grid-template-columns:1.3fr 1fr;align-items:center;padding:0 8vw;gap:6vw}
+.menu nav a{font:300 clamp(46px,7.5vw,112px)/1.04 var(--f-display);display:block;overflow:hidden}
+.menu nav a span{display:inline-block;transition:color .4s,transform .6s var(--ease)}
+.menu nav a:hover span{font-style:italic;color:var(--gold-light);transform:translateX(18px)}
+.menu-side{border-left:1px solid rgba(228,194,127,.25);padding-left:4vw;color:#A79E92;font-size:15px}
+.menu-side img{width:100%;max-width:320px;aspect-ratio:4/5;object-fit:cover;object-position:top;margin-bottom:24px;filter:grayscale(.2)}
+
+/* preloader */
+.pre{position:fixed;inset:0;z-index:200;pointer-events:none}
+.pre .half{position:absolute;left:0;right:0;height:50.5%;background:var(--night)}
+.pre .top{top:0}.pre .bot{bottom:0}
+.pre .line{position:absolute;left:12vw;right:12vw;top:50%;height:1px;background:var(--gold);transform:scaleX(0);transform-origin:left}
+.pre .count{position:absolute;right:12vw;top:calc(50% + 22px);font:400 13px var(--f-caps);letter-spacing:.32em;color:var(--gold-light)}
+.pre .name{position:absolute;left:12vw;top:calc(50% + 22px);font:400 13px var(--f-caps);letter-spacing:.32em;color:var(--cream);overflow:hidden}
+.pre .name span{display:inline-block}
+
+/* HERO */
+.hero{height:100vh;position:relative;background:var(--night);color:var(--cream);overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 50% 45%,rgba(184,135,59,.16),transparent 60%);pointer-events:none}
+.city{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;will-change:transform;padding-bottom:6vh}
+.logo-svg{width:min(980px,92vw);overflow:visible}
+.wordmark{font:400 clamp(26px,4.4vw,64px)/1 var(--f-caps);letter-spacing:.16em;margin-top:2vh;text-align:center;overflow:hidden;text-transform:uppercase}
+.wordmark span{display:inline-block}
+.tagline-caps{margin-top:2.2vh;color:#C9BDAE;font-size:clamp(9px,1vw,13px);display:flex;gap:18px;align-items:center;overflow:hidden;flex-wrap:wrap;justify-content:center}
+.tagline-caps b{color:var(--gold);font-weight:400}
+.hero-foot{position:absolute;left:48px;right:48px;bottom:40px;display:flex;justify-content:space-between;align-items:flex-end;z-index:3;gap:24px}
+.hero-foot p{max-width:330px;font-size:14px;color:#A79E92}
+.hero-foot .btn{color:var(--gold-light)}
+.scroll-cue{position:absolute;left:50%;bottom:36px;transform:translateX(-50%);z-index:3;display:flex;flex-direction:column;align-items:center;gap:12px;color:#7d746a}
+.scroll-cue i{width:1px;height:52px;background:linear-gradient(var(--gold),transparent);animation:cue 2.2s var(--ease) infinite;transform-origin:top}
+@keyframes cue{0%{transform:scaleY(0)}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+.interior{position:absolute;inset:0;z-index:4;clip-path:inset(50% 50% 50% 50%);overflow:hidden}
+.interior img{width:100%;height:100%;object-fit:cover;transform:scale(1.25)}
+.interior::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,14,12,.15),rgba(15,14,12,.75))}
+.interior h1{position:absolute;left:48px;bottom:12vh;z-index:2;font-size:clamp(50px,8vw,136px);color:var(--cream);max-width:1250px}
+.interior .sub{position:absolute;right:48px;bottom:13vh;z-index:2;max-width:320px;color:#E9E1D4;font-size:16px}
+
+/* MANIFESTO */
+.manifesto{position:relative;padding:26vh 0 22vh;overflow:hidden}
+.manifesto p.big{position:relative;z-index:2;font:300 clamp(36px,5vw,82px)/1.1 var(--f-display);max-width:1180px}
+.manifesto .w{color:rgba(23,21,18,.12)}
+.float-img{position:absolute;z-index:1;overflow:hidden;will-change:transform}
+.float-img img{width:100%;height:100%;object-fit:cover;object-position:top}
+.fi-1{width:16vw;aspect-ratio:3/4;right:5vw;top:12vh;border-radius:200px 200px 0 0}
+.fi-2{width:12vw;aspect-ratio:1;right:24vw;bottom:8vh}
+.fi-3{width:11vw;aspect-ratio:1;right:40vw;top:6vh}
+.manifesto .sig{position:relative;z-index:2;margin-top:56px;display:flex;align-items:center;gap:24px}
+.manifesto .sig img{width:64px;height:64px;border-radius:50%;object-fit:cover;border:1px solid var(--gold)}
+.manifesto .sig b{font:400 22px var(--f-script);color:var(--gold);display:block;font-size:34px;line-height:1}
+
+/* REAL ESTATE stack */
+.re-head{padding:8vh 0 10vh}
+.re-head .wrap{display:grid;grid-template-columns:1fr 1fr;gap:6vw;align-items:end}
+.re-head p{color:var(--ink-2);max-width:480px}
+.stack .card{height:100vh;position:sticky;top:0;display:grid;grid-template-columns:.95fr 1.05fr;background:var(--cream-2);overflow:hidden;transform-origin:50% 0}
+.stack .card:nth-child(even){background:var(--cream)}
+.card .txt{padding:16vh 5vw 8vh 6vw;display:flex;flex-direction:column;position:relative;z-index:2}
+.card .num{font:300 clamp(80px,9vw,150px)/1 var(--f-display);display:flex;overflow:hidden;height:1em}
+.card .num span{display:block}
+.card h3{font-size:clamp(44px,5vw,84px);margin:22px 0}
+.card p{max-width:430px;color:var(--ink-2)}
+.card ul{list-style:none;margin:28px 0;font-size:15px;color:var(--ink-2)}
+.card ul li{padding:10px 0;border-top:1px solid rgba(23,21,18,.12);display:flex;gap:12px}
+.card ul li::before{content:"—";color:var(--gold)}
+.card .btn{margin-top:auto;align-self:flex-start}
+.card .img{overflow:hidden;position:relative}
+.card .img img{position:absolute;inset:-12% 0;width:100%;height:124%;object-fit:cover}
+.card .img .tag{position:absolute;left:28px;bottom:28px;z-index:2;background:var(--cream);padding:12px 18px;font:400 11px var(--f-caps);letter-spacing:.24em;text-transform:uppercase}
+.card .shade{position:absolute;inset:0;background:#000;opacity:0;pointer-events:none;z-index:5}
+
+/* PLANO */
+.plano{height:100vh;position:relative;display:grid;grid-template-columns:1.15fr .85fr;align-items:center;gap:6vw;padding:0 6vw;background:var(--cream)}
+.compare{position:relative;aspect-ratio:4/3;overflow:hidden}
+.compare img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.compare .dib{filter:grayscale(1) contrast(1.15) brightness(1.05)}
+.compare .real{clip-path:inset(0 0 0 100%)}
+.compare .bar{position:absolute;top:0;bottom:0;left:100%;width:2px;background:var(--gold-light);box-shadow:0 0 24px var(--gold)}
+.compare .bar::after{content:"";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:54px;height:54px;border-radius:50%;border:1px solid var(--gold-light);background:rgba(15,14,12,.55);backdrop-filter:blur(6px)}
+.compare .lab{position:absolute;top:22px;z-index:3;font:400 11px var(--f-caps);letter-spacing:.26em;text-transform:uppercase;background:var(--cream);padding:9px 14px}
+.compare .lab.l{left:22px}.compare .lab.r{right:22px;background:var(--night);color:var(--gold-light)}
+.checks{list-style:none;margin-top:36px}
+.checks li{padding:22px 0;border-top:1px solid rgba(23,21,18,.15);opacity:.12;display:grid;grid-template-columns:44px 1fr}
+.checks .n{font:italic 300 22px var(--f-display);color:var(--gold)}
+.checks b{font:400 26px var(--f-display);display:block;line-height:1.2}
+.checks span{color:var(--ink-2);font-size:15px}
+
+/* TRAYECTORIA */
+.tray{height:100vh;overflow:hidden;position:relative;background:var(--cream-2)}
+.tray-track{display:flex;height:100%;align-items:flex-end;gap:5vw;padding:0 8vw 15vh;width:max-content}
+.tray-head{width:38vw;align-self:center;flex:none}
+.tray-head p{color:var(--ink-2);max-width:420px;margin-top:26px}
+.step{width:26vw;min-width:300px;flex:none;position:relative}
+.step .ph{aspect-ratio:1;overflow:hidden;clip-path:inset(100% 0 0 0)}
+.step .ph img{width:100%;height:100%;object-fit:cover;object-position:top;transform:scale(1.3)}
+.step .yr{font:300 70px/1 var(--f-display);margin:18px 0 6px}
+.step h3{font-size:34px}
+.step p{font-size:15px;color:var(--ink-2);max-width:340px;margin-top:8px}
+.tray .rail{position:absolute;left:0;right:0;bottom:8vh;height:1px;background:var(--gold);transform-origin:left;transform:scaleX(0)}
+
+/* MENTORIAS */
+.ment{padding:26vh 0 20vh;position:relative;overflow:hidden}
+.ment-bg{position:absolute;right:-6vw;top:10vh;width:42vw;aspect-ratio:3/4;opacity:.16;filter:grayscale(1);border-radius:400px 400px 0 0;overflow:hidden}
+.ment-bg img{width:100%;height:100%;object-fit:cover;object-position:top}
+.ment-head{display:grid;grid-template-columns:1.2fr .8fr;gap:6vw;align-items:end;position:relative}
+.ment-head p{color:#A79E92}
+.programs{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:100px;perspective:1400px;position:relative}
+.prog{border:1px solid rgba(228,194,127,.22);padding:0 0 34px;display:flex;flex-direction:column;position:relative;transform-style:preserve-3d;background:var(--night-2);overflow:hidden}
+.prog::after{content:"";position:absolute;inset:0;background:radial-gradient(420px circle at var(--mx,50%) var(--my,50%),rgba(228,194,127,.2),transparent 60%);opacity:0;transition:opacity .4s;pointer-events:none}
+.prog:hover::after{opacity:1}
+.prog .pimg{height:230px;overflow:hidden;position:relative}
+.prog .pimg img{width:100%;height:100%;object-fit:cover;object-position:top;filter:grayscale(.35);transition:transform 1.2s var(--ease),filter .6s}
+.prog:hover .pimg img{transform:scale(1.07);filter:none}
+.prog .pimg::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 40%,var(--night-2))}
+.prog .in{padding:0 32px;display:flex;flex-direction:column;flex:1}
+.prog .tag{color:var(--gold-light);margin-top:-8px;position:relative;z-index:2}
+.prog h3{font-size:40px;margin:22px 0 14px}
+.prog p{color:#A79E92;font-size:16px}
+.prog ul{list-style:none;margin:22px 0 0;font-size:14px;color:#CFC5B8;flex:1}
+.prog ul li{padding:9px 0;border-top:1px solid rgba(255,255,255,.07)}
+.prog .btn{margin-top:30px;align-self:flex-start;color:var(--gold-light)}
+.prog.feat{border-color:var(--gold)}
+.prog.feat .tag{color:var(--night);background:var(--gold-light);padding:7px 12px;align-self:flex-start}
+.prov{margin-top:26px;font-size:13px;color:#6f675d}
+
+/* CONTENIDO */
+.cont{position:relative;overflow:hidden;display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;padding:0 48px;height:150vh}
+.cont .intro{align-self:start;position:sticky;top:30vh;padding-top:18vh}
+.cont .intro p{color:var(--ink-2);margin:20px 0 34px;max-width:380px}
+.col{display:flex;flex-direction:column;gap:24px;will-change:transform}
+.reel{position:relative;aspect-ratio:9/16;overflow:hidden;flex:none;display:block}
+.reel img{width:100%;height:100%;object-fit:cover;transition:transform 1s var(--ease)}
+.reel:hover img{transform:scale(1.05)}
+.reel .pl{position:absolute;top:14px;right:14px;width:36px;height:36px;border-radius:50%;background:rgba(246,240,230,.9);display:grid;place-items:center}
+
+/* MI MUNDO highlights */
+.mundo{padding:14vh 0 6vh;text-align:center}
+.hl-row{display:flex;justify-content:center;gap:4vw;margin-top:60px;flex-wrap:wrap}
+.hl{display:flex;flex-direction:column;align-items:center;gap:14px}
+.hl .ring{width:128px;height:128px;border-radius:50%;padding:5px;background:var(--gold-grad);background-size:200% 100%}
+.hl .ring img{width:100%;height:100%;border-radius:50%;object-fit:cover;border:4px solid var(--cream)}
+.hl span{font:400 11px var(--f-caps);letter-spacing:.24em;text-transform:uppercase}
+
+/* FAQ */
+.faq{padding:16vh 0}
+.faq-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:8vw}
+.q{border-top:1px solid rgba(23,21,18,.15);position:relative}
+.q .gl{position:absolute;top:-1px;left:0;height:1px;width:100%;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .9s var(--ease)}
+.q.open .gl{transform:none}
+.q button{all:unset;cursor:pointer;width:100%;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:28px 0;font:400 clamp(22px,2.2vw,30px)/1.2 var(--f-display)}
+.q .pm{font:300 32px var(--f-display);transition:transform .6s var(--ease),color .4s;flex:none}
+.q.open .pm{transform:rotate(135deg);color:var(--gold)}
+.q .a{height:0;overflow:hidden}
+.q .a p{padding-bottom:28px;color:var(--ink-2);max-width:620px}
+
+/* FIRMA */
+.firma{min-height:110vh;background:var(--night);color:var(--cream);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden;padding:20vh 20px}
+.firma .bgimg{position:absolute;inset:0;opacity:.18}
+.firma .bgimg img{width:100%;height:100%;object-fit:cover}
+.firma svg.arc{position:absolute;top:14%;left:-5%;width:110%}
+.script{font:400 clamp(50px,7.6vw,128px)/1.18 var(--f-script);clip-path:inset(-20% 100% -20% 0);position:relative;padding:0 .2em}
+.firma .btn{margin-top:72px;font-size:13px;padding:28px 48px;color:var(--gold-light);position:relative}
+.firma small{margin-top:28px;color:#7d746a;position:relative}
+footer{background:var(--night);color:#7d746a;padding:44px 48px;display:flex;justify-content:space-between;align-items:center;gap:20px;font-size:13px;border-top:1px solid #26231f}
+footer .fl{display:flex;gap:28px}
+footer a:hover{color:var(--gold-light)}
+.wa{position:fixed;right:26px;bottom:26px;z-index:80;width:60px;height:60px;border-radius:50%;background:var(--gold);display:grid;place-items:center;box-shadow:0 18px 40px -12px rgba(0,0,0,.5);transform:scale(0)}
+.wa svg{width:28px;height:28px}
+.wa::before{content:"";position:absolute;inset:0;border-radius:50%;border:1px solid var(--gold);animation:pulse 2.4s infinite}
+@keyframes pulse{to{transform:scale(1.7);opacity:0}}
+
+@media (max-width:900px){
+  body{font-size:16px}
+  .wrap{padding:0 20px}.nav{padding:18px 20px}
+  .nav-logo span{display:none}
+  .menu{grid-template-columns:1fr;padding:0 24px}.menu-side{display:none}
+  .hero-foot{left:20px;right:20px;bottom:28px;flex-direction:column;align-items:flex-start}
+  .scroll-cue{display:none}
+  .tagline-caps{font-size:8.5px;letter-spacing:.14em;gap:7px;flex-wrap:nowrap}
+  .interior h1{left:20px;right:20px;bottom:22vh}
+  .interior .sub{left:20px;right:20px;bottom:9vh;max-width:none}
+  .fi-1{width:34vw;top:4vh;right:-6vw}.fi-2{width:26vw;right:4vw;bottom:2vh}.fi-3{display:none}
+  .re-head .wrap,.ment-head,.faq-grid{grid-template-columns:1fr;gap:28px}
+  .stack .card{grid-template-columns:1fr;grid-template-rows:auto 1fr}
+  .card .txt{padding:96px 20px 20px}.card ul{display:none}
+  .card .num{font-size:64px}.card h3{margin:14px 0}
+  .card .btn{margin-top:20px}
+  .plano{grid-template-columns:1fr;height:auto;padding:16vh 20px;gap:40px}
+  .tray-head{width:82vw}.step{width:74vw;min-width:0}
+  .programs{grid-template-columns:1fr;margin-top:60px}
+  .ment-bg{width:80vw;right:-30vw}
+  .cont{grid-template-columns:1fr 1fr;height:auto;padding:12vh 20px;gap:14px}
+  .cont .intro{grid-column:1/-1;position:static;padding-top:0}
+  .col{gap:14px}
+  .hl .ring{width:92px;height:92px}
+  footer{flex-direction:column;padding:32px 20px;text-align:center}
+}
+@media (prefers-reduced-motion:reduce){.grain,.wa::before{animation:none}}
+</style>
+</head>
+<body>
+<div class="cursor" id="cursor"></div>
+<div class="grain" aria-hidden="true"></div>
+
+<!-- PRELOADER -->
+<div class="pre" id="pre" aria-hidden="true">
+  <div class="half top"></div><div class="half bot"></div>
+  <div class="line"></div>
+  <div class="name"><span>Andrea Andrade</span></div>
+  <div class="count"><span id="cnt">000</span></div>
+</div>
+
+<header class="nav">
+  <a href="#top" class="nav-logo" aria-label="Inicio">
+    <svg viewBox="0 0 120 70" fill="none"><text x="48" y="62" text-anchor="middle" font-family="Cormorant Garamond" font-weight="500" font-size="78" letter-spacing="-14" fill="currentColor">AA</text><path d="M14 62 C 34 40, 62 30, 88 34" stroke="currentColor" stroke-width="2.4"/><path d="M90 64 V22 L100 28 V64 M104 64 V36 L112 40 V64" stroke="currentColor" stroke-width="1.6"/></svg>
+    <span>Andrea Andrade</span>
+  </a>
+  <button class="menu-btn" id="menuBtn" aria-label="Abrir menú">Menú <i></i></button>
+</header>
+<div class="menu" id="menu">
+  <nav>
+    <a href="#real-estate"><span>Real Estate</span></a>
+    <a href="#arquitectura"><span>Arquitectura</span></a>
+    <a href="#trayectoria"><span>Trayectoria</span></a>
+    <a href="#mentorias"><span>Mentorías</span></a>
+    <a href="#contacto"><span>Contacto</span></a>
+  </nav>
+  <div class="menu-side">
+    <img src="assets/p1.jpg" alt="Andrea Andrade">
+    <p class="caps" style="color:var(--gold-light);margin-bottom:10px">Buenos Aires</p>
+    <p>Arquitecta + Agente inmobiliaria.<br>Respondo personalmente por WhatsApp.</p>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="city" id="city">
+    <svg class="logo-svg" viewBox="0 0 1000 290" fill="none" aria-label="Andrea Andrade">
+      <defs>
+        <linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#8C5F22"/><stop offset=".45" stop-color="#E4C27F"/><stop offset=".7" stop-color="#B8873B"/><stop offset="1" stop-color="#8C5F22"/></linearGradient>
+      </defs>
+      <path class="hz" d="M0 262 H1000" stroke="url(#g)" stroke-width="1.6"/>
+      <text class="aa" x="462" y="263" text-anchor="middle" font-family="Cormorant Garamond" font-weight="500" font-size="300" letter-spacing="-52" fill="#F6F0E6">AA</text>
+      <path class="arcp" d="M262 262 C 330 215, 470 140, 655 152" stroke="url(#g)" stroke-width="7" stroke-linecap="round"/>
+      <g class="bld" stroke="url(#g)" stroke-width="2.4">
+        <path class="b" d="M636 262 V176 L664 164 V262 M642 262 V182 L658 175"/>
+        <path class="b" d="M674 262 V96 L708 118 V262 M680 262 V108 L702 122"/>
+        <path class="b" d="M716 262 V140 L752 160 V262 M722 262 V152 L746 165"/>
+        <path class="b" d="M766 262 V210 L786 222 V262"/>
+      </g>
+      <rect id="win" x="684" y="150" width="14" height="20" fill="#E4C27F" opacity="0"/>
+    </svg>
+    <div class="wordmark"><span>Andrea Andrade</span></div>
+    <div class="tagline-caps caps"><span>Arquitectura</span><b>•</b><span>Real Estate</span><b>•</b><span>Desarrollo Profesional</span></div>
+  </div>
+  <div class="hero-foot" id="heroFoot">
+    <p>Arquitecta y agente inmobiliaria en Buenos Aires. Compra, venta, alquileres e inversión con mirada técnica.</p>
+    <a class="btn mag" href="https://wa.me/message/U2M2Q7T2XWXMM1" target="_blank" rel="noopener">Hablemos <span class="ar">→</span></a>
+  </div>
+  <div class="scroll-cue caps" id="cue" style="font-size:10px"><span>Scroll</span><i></i></div>
+  <div class="interior" id="interior">
+    <img src="assets/interior-hero.jpg" alt="Interior luminoso de un departamento">
+    <h1 id="heroTitle">
+      <span class="ln"><span>Arquitectura que se habita.</span></span>
+      <span class="ln"><span><em class="gold">Propiedades</em> que se eligen</span></span>
+      <span class="ln"><span>con otros ojos.</span></span>
+    </h1>
+    <p class="sub" id="heroSub">Veo cada propiedad como un proyecto y cada operación como un negocio.</p>
+  </div>
+</section>
+
+<!-- MANIFESTO -->
+<section class="manifesto" id="manif">
+  <div class="float-img fi-1" data-speed="-0.25"><img src="assets/p1.jpg" alt=""></div>
+  <div class="float-img fi-2" data-speed="0.18"><img src="assets/depto-luz.jpg" alt=""></div>
+  <div class="float-img fi-3" data-speed="-0.12"><img src="assets/p6.jpg" alt=""></div>
+  <div class="wrap">
+    <p class="caps eyebrow" style="margin-bottom:44px;position:relative;z-index:2">Experiencia que inspira</p>
+    <p class="big" id="manText">Soy <em class="hl">arquitecta</em> de formación y <em class="hl">agente inmobiliaria</em> por decisión. Veo cada propiedad como un proyecto y cada operación como un negocio. Por eso mis clientes compran mejor, venden antes y alquilan sin vueltas.</p>
+    <div class="sig"><img src="assets/perfil.jpg" alt="Andrea Andrade"><div><b>Andrea Andrade</b><span class="caps" style="font-size:10px;color:var(--muted)">Arquitecta · Agente inmobiliaria</span></div></div>
+  </div>
+</section>
+
+<!-- REAL ESTATE -->
+<section id="real-estate">
+  <div class="re-head"><div class="wrap">
+    <div><p class="caps eyebrow">Real Estate</p><h2 class="split" style="margin-top:26px"><span class="ln"><span>Una propiedad no es un aviso.</span></span><span class="ln"><span>Es <em class="gold">un proyecto.</em></span></span></h2></div>
+    <p class="fade-up">Compra, venta, alquiler temporario e inversión en Buenos Aires, con el ojo técnico de una arquitecta y la estrategia de una negociadora.</p>
+  </div></div>
+  <div class="stack">
+    <article class="card"><div class="shade"></div>
+      <div class="txt"><div class="num gold"><span>01</span></div><span class="caps" style="color:var(--gold)">Comprar</span><h3>Comprá con ojos de arquitecta.</h3><p>Visito con vos y te digo lo que el aviso no muestra.</p>
+        <ul><li>Estructura, humedad e instalaciones</li><li>Metros reales y costo de reforma</li><li>Negociación del precio final</li></ul>
+        <a class="btn solid mag" href="https://wa.me/message/U2M2Q7T2XWXMM1" target="_blank" rel="noopener">Busco propiedad <span class="ar">→</span></a></div>
+      <div class="img hov"><img src="assets/re-comprar.jpg" alt="Living luminoso de un departamento en venta"><span class="tag">Asesoría de compra</span></div></article>
+    <article class="card"><div class="shade"></div>
+      <div class="txt"><div class="num gold"><span>02</span></div><span class="caps" style="color:var(--gold)">Vender</span><h3>Tu propiedad, puesta en valor.</h3><p>Home staging, fotografía y estrategia de precio para vender antes y mejor.</p>
+        <ul><li>Diagnóstico de arquitecta</li><li>Puesta en valor de bajo costo</li><li>Difusión y filtro de compradores</li></ul>
+        <a class="btn solid mag" href="https://wa.me/message/U2M2Q7T2XWXMM1" target="_blank" rel="noopener">Quiero vender <span class="ar">→</span></a></div>
+      <div class="img hov"><img src="assets/re-vender.jpg" alt="Casa moderna con piscina"><span class="tag">Venta</span></div></article>
+    <article class="card"><div class="shade"></div>
+      <div class="txt"><div class="num gold"><span>03</span></div><span class="caps" style="color:var(--gold)">Alquiler temporario</span><h3>Menos visitas. Mejores inquilinos.</h3><p>Gestión completa para propietarios que buscan rentabilidad sin dolores de cabeza.</p>
+        <ul><li>Precio y anuncio que convierte</li><li>Reservas, contratos y check-in</li><li>Filtro real de inquilinos</li></ul>
+        <a class="btn solid mag" href="https://wa.me/message/U2M2Q7T2XWXMM1" target="_blank" rel="noopener">Gestionar mi depto <span class="ar">→</span></a></div>
+      <div class="img hov"><img src="assets/re-temporario.jpg" alt="Departamento acogedor para alquiler temporario"><span class="tag">Alquileres temporarios</span></div></article>
+    <article class="card"><div class="shade"></div>
+      <div class="txt"><div class="num gold"><span>04</span></div><span class="caps" style="color:var(--gold)">Invertir</span><h3>Ladrillos que rinden.</h3><p>Analizo números, zona y potencial antes de que pongas un peso.</p>
+        <ul><li>Rentabilidad proyectada</li><li>Potencial de revalorización</li><li>Pozo, usado o para reciclar</li></ul>
+        <a class="btn solid mag" href="https://wa.me/message/U2M2Q7T2XWXMM1" target="_blank" rel="noopener">Asesoría de inversión <span class="ar">→</span></a></div>
+      <div class="img hov"><img src="assets/re-invertir.jpg" alt="Edificio contemporáneo"><span class="tag">Inversión</span></div></article>
+  </div>
+</section>
+
+<!-- ARQUITECTURA -->
+<section class="plano" id="arquitectura">
+  <div class="compare hov">
+    <img class="dib" src="assets/plano-dibujo.jpg" alt="Arquitecta dibujando un plano">
+    <img class="real" src="assets/plano-real.jpg" alt="Interior terminado">
+    <span class="lab l">El plano</span><span class="lab r">La realidad</span>
+    <div class="bar" id="bar"></div>
+  </div>
+  <div>
+    <p class="caps eyebrow">Arquitectura</p>
+    <h2 class="split" style="margin:24px 0 8px"><span class="ln"><span>Leo una casa</span></span><span class="ln"><span>como <em class="gold">se lee un plano.</em></span></span></h2>
+    <ul class="checks" id="checks">
+      <li><span class="n">i.</span><div><b>Patologías ocultas</b><span>Humedad, estructura e instalaciones antes de firmar.</span></div></li>
+      <li><span class="n">ii.</span><div><b>Potencial de reforma</b><span>Qué se puede abrir, ampliar o redistribuir, y cuánto cuesta.</span></div></li>
+      <li><span class="n">iii.</span><div><b>Puesta en valor</b><span>Cambios mínimos que suben el precio de venta.</span></div></li>
+    </ul>
+  </div>
+</section>
+
+<!-- TRAYECTORIA -->
+<section class="tray" id="trayectoria">
+  <div class="rail" id="rail"></div>
+  <div class="tray-track" id="track">
+    <div class="tray-head"><p class="caps eyebrow">Trayectoria que enseña</p><h2 style="margin-top:24px">Cada paso, <em class="gold">un piso más.</em></h2><p>De la mesa de dibujo a la calle, y de la calle a enseñar lo aprendido.</p></div>
+    <div class="step"><div class="ph"><img src="assets/p6.jpg" alt="Andrea en su oficina"></div><div class="yr gold">01</div><h3>Arquitecta</h3><p>La base técnica: proyecto, obra y una mirada entrenada para ver espacios.</p></div>
+    <div class="step" style="margin-bottom:6vh"><div class="ph"><img src="assets/p2.jpg" alt="Andrea con documentos de una operación"></div><div class="yr gold">02</div><h3>Agente inmobiliaria</h3><p>Operaciones reales en Buenos Aires, con transparencia aunque cueste una comisión.</p></div>
+    <div class="step" style="margin-bottom:12vh"><div class="ph"><img src="assets/p1.jpg" alt="Andrea grabando contenido"></div><div class="yr gold">03</div><h3>Marca en público</h3><p>Construyendo su marca frente a miles de personas: real estate sin filtro.</p></div>
+    <div class="step" style="margin-bottom:18vh"><div class="ph"><img src="assets/p12.jpg" alt="Andrea en un podcast"></div><div class="yr gold">04</div><h3>Mentora</h3><p>Hoy enseña el método a agentes que quieren construir algo propio.</p></div>
+  </div>
+</section>
+
+<!-- MENTORIAS -->
+<section class="ment" id="mentorias">
+  <div class="ment-bg" data-speed="-0.2"><img src="assets/p12.jpg" alt=""></div>
+  <div class="wrap">
+    <div class="ment-head">
+      <div><p class="caps eyebrow" style="color:var(--gold-light)">Desarrollo Profesional</p>
+      <h2 class="split" style="margin-top:26px"><span class="ln"><span>Lo que aprendí en la calle,</span></span><span class="ln"><span><em class="gold">en un método.</em></span></span></h2></div>
+      <p class="fade-up">¿Te gusta lo que hacés, pero querés construir algo más? Me ofrecieron un sueldo fijo y dije que no. Hoy enseño exactamente cómo construí mi negocio, sin humo.</p>
+    </div>
+    <div class="programs">
+      <article class="prog"><div class="pimg"><img src="assets/p9.jpg" alt=""></div><div class="in">
+        <span class="caps tag">Programa online</span><h3>Agente Independiente</h3><p>Para dejar la relación de dependencia y vivir del real estate con marca propia.</p>
+        <ul><li>Mentalidad y finanzas del agente</li><li>Captación sin depender de portales</li><li>Marca personal en Instagram</li><li>Negociación y cierre</li></ul>
+        <a class="btn mag" href="https://wa.me/message/U2M2Q7T2XWXMM1" target="_blank" rel="noopener">Quiero info <span class="ar">→</span></a></div></article>
+      <article class="prog feat"><div class="pimg"><img src="assets/p5.jpg" alt=""></div><div class="in">
+        <span class="caps tag">Más elegido</span><h3>Alquiler Temporario Rentable</h3><p>"Para alquilar rápido hay que hacer muchas visitas." Es mentira. El sistema para alquilar con menos visitas y mejores inquilinos.</p>
+        <ul><li>Precio y posicionamiento</li><li>Anuncio y fotos que convierten</li><li>Filtro de inquilinos</li><li>Contratos, reservas y devoluciones</li></ul>
+        <a class="btn mag" href="https://wa.me/message/U2M2Q7T2XWXMM1" target="_blank" rel="noopener">Inscribirme <span class="ar">→</span></a></div></article>
+      <article class="prog"><div class="pimg"><img src="assets/p4.jpg" alt=""></div><div class="in">
+        <span class="caps tag">Cupos limitados</span><h3>Mentoría 1:1</h3><p>Acompañamiento directo durante 8 semanas para armar tu cartera, tu marca y tus primeros cierres.</p>
+        <ul><li>Sesiones individuales semanales</li><li>Plan de acción a medida</li><li>Revisión de tus operaciones</li><li>Acceso directo por WhatsApp</li></ul>
+        <a class="btn mag" href="https://wa.me/message/U2M2Q7T2XWXMM1" target="_blank" rel="noopener">Aplicar <span class="ar">→</span></a></div></article>
+    </div>
+  </div>
+</section>
+
+<!-- CONTENIDO -->
+<section class="cont" id="contenido">
+  <div class="intro"><p class="caps eyebrow">@andrea.andrade.ruiz</p><h2 class="split" style="margin-top:24px"><span class="ln"><span>Real estate</span></span><span class="ln"><span><em class="gold">sin filtro.</em></span></span></h2><p>Cada semana comparto lo que pasa detrás de las operaciones: aciertos, errores y decisiones difíciles.</p><a class="btn mag" href="https://www.instagram.com/andrea.andrade.ruiz/" target="_blank" rel="noopener">Seguir en Instagram <span class="ar">→</span></a></div>
+  <div class="col" id="colA">
+    <a class="reel hov" href="https://www.instagram.com/andrea.andrade.ruiz/" target="_blank" rel="noopener"><img src="assets/p2.jpg" alt="Devolví una reserva" loading="lazy"><span class="pl"><svg width="11" height="13" viewBox="0 0 12 14"><path d="M0 0L12 7L0 14Z" fill="#171512"/></svg></span></a>
+    <a class="reel hov" href="https://www.instagram.com/andrea.andrade.ruiz/" target="_blank" rel="noopener"><img src="assets/p5.jpg" alt="Para alquilar rápido hay que hacer muchas visitas: es mentira" loading="lazy"><span class="pl"><svg width="11" height="13" viewBox="0 0 12 14"><path d="M0 0L12 7L0 14Z" fill="#171512"/></svg></span></a>
+    <a class="reel hov" href="https://www.instagram.com/andrea.andrade.ruiz/" target="_blank" rel="noopener"><img src="assets/p7.jpg" alt="" loading="lazy"><span class="pl"><svg width="11" height="13" viewBox="0 0 12 14"><path d="M0 0L12 7L0 14Z" fill="#171512"/></svg></span></a>
+    <a class="reel hov" href="https://www.instagram.com/andrea.andrade.ruiz/" target="_blank" rel="noopener"><img src="assets/p10.jpg" alt="" loading="lazy"><span class="pl"><svg width="11" height="13" viewBox="0 0 12 14"><path d="M0 0L12 7L0 14Z" fill="#171512"/></svg></span></a>
+  </div>
+  <div class="col" id="colB">
+    <a class="reel hov" href="https://www.instagram.com/andrea.andrade.ruiz/" target="_blank" rel="noopener"><img src="assets/p3.jpg" alt="¿Estás por tirar la toalla?" loading="lazy"><span class="pl"><svg width="11" height="13" viewBox="0 0 12 14"><path d="M0 0L12 7L0 14Z" fill="#171512"/></svg></span></a>
+    <a class="reel hov" href="https://www.instagram.com/andrea.andrade.ruiz/" target="_blank" rel="noopener"><img src="assets/p4.jpg" alt="Me ofrecieron un sueldo fijo y dije que no" loading="lazy"><span class="pl"><svg width="11" height="13" viewBox="0 0 12 14"><path d="M0 0L12 7L0 14Z" fill="#171512"/></svg></span></a>
+    <a class="reel hov" href="https://www.instagram.com/andrea.andrade.ruiz/" target="_blank" rel="noopener"><img src="assets/p8.jpg" alt="" loading="lazy"><span class="pl"><svg width="11" height="13" viewBox="0 0 12 14"><path d="M0 0L12 7L0 14Z" fill="#171512"/></svg></span></a>
+    <a class="reel hov" href="https://www.instagram.com/andrea.andrade.ruiz/" target="_blank" rel="noopener"><img src="assets/p11.jpg" alt="" loading="lazy"><span class="pl"><svg width="11" height="13" viewBox="0 0 12 14"><path d="M0 0L12 7L0 14Z" fill="#171512"/></svg></span></a>
+  </div>
+</section>
+
+<!-- MI MUNDO -->
+<section class="mundo">
+  <div class="wrap">
+    <p class="caps eyebrow">Mi mundo</p>
+    <div class="hl-row" id="hlRow">
+      <div class="hl"><div class="ring"><img src="assets/h-trips.jpg" alt=""></div><span>Trips</span></div>
+      <div class="hl"><div class="ring"><img src="assets/h-networking.jpg" alt=""></div><span>Networking</span></div>
+      <div class="hl"><div class="ring"><img src="assets/h-alquileres.jpg" alt=""></div><span>Alquileres</span></div>
+      <div class="hl"><div class="ring"><img src="assets/h-convencion.jpg" alt=""></div><span>Convención 2024</span></div>
+      <div class="hl"><div class="ring"><img src="assets/perfil.jpg" alt=""></div><span>Team</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="wrap faq-grid">
+    <div><p class="caps eyebrow">Preguntas</p><h2 class="split" style="margin-top:24px"><span class="ln"><span>Lo que <em class="gold">siempre</em></span></span><span class="ln"><span>me preguntan.</span></span></h2></div>
+    <div id="faq">
+      <div class="q open"><span class="gl"></span><button>¿Trabajás solo en Buenos Aires?<span class="pm">+</span></button><div class="a" style="height:auto"><p>Las operaciones inmobiliarias, sí. Las mentorías son online y podés hacerlas desde cualquier lugar.</p></div></div>
+      <div class="q"><span class="gl"></span><button>¿Cuánto cobrás por una asesoría de compra?<span class="pm">+</span></button><div class="a"><p>Depende de la operación. Escribime y te paso una propuesta clara, sin letra chica.</p></div></div>
+      <div class="q"><span class="gl"></span><button>¿La mentoría sirve si recién empiezo?<span class="pm">+</span></button><div class="a"><p>Sí. Agente Independiente está pensado justamente para quien da sus primeros pasos o quiere pasar de empleado a independiente.</p></div></div>
+      <div class="q"><span class="gl"></span><button>¿Gestionás mi departamento en alquiler temporario?<span class="pm">+</span></button><div class="a"><p>Sí: precio, anuncio, reservas, contratos y check-in. Vos solo recibís la renta.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FIRMA -->
+<section class="firma" id="contacto">
+  <div class="bgimg" data-speed="-0.15"><img src="assets/interior-hero.jpg" alt=""></div>
+  <svg class="arc" viewBox="0 0 1200 200" fill="none" aria-hidden="true"><path id="arc2" d="M0 190 C 380 40, 820 10, 1200 70" stroke="#B8873B" stroke-width="1.6"/></svg>
+  <p class="caps eyebrow" style="position:relative">Trabajemos juntos</p>
+  <p class="script gold" id="s1" style="margin-top:34px">Experiencia que inspira.</p>
+  <p class="script gold" id="s2">Trayectoria que enseña.</p>
+  <a class="btn mag" id="bigBtn" href="https://wa.me/message/U2M2Q7T2XWXMM1" target="_blank" rel="noopener">Escribime por WhatsApp <span class="ar">→</span></a>
+  <small>Respondo personalmente · Buenos Aires</small>
+</section>
+<footer>
+  <span class="caps" style="letter-spacing:.3em">Andrea Andrade</span>
+  <span class="fl"><a href="https://www.instagram.com/andrea.andrade.ruiz/" target="_blank" rel="noopener">Instagram</a><a href="https://www.threads.net/@andrea.andrade.ruiz" target="_blank" rel="noopener">Threads</a><a href="https://wa.me/message/U2M2Q7T2XWXMM1" target="_blank" rel="noopener">WhatsApp</a></span>
+  <span>© 2026 · Arquitectura · Real Estate · Desarrollo Profesional</span>
+</footer>
+<a class="wa" id="wa" href="https://wa.me/message/U2M2Q7T2XWXMM1" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" fill="#0F0E0C"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1s-.5-.1-.7.1-.8 1-1 1.2-.4.2-.6.1c-.3-.1-1.2-.5-2.4-1.5-.9-.8-1.5-1.8-1.6-2.1s0-.4.1-.6l.4-.5c.1-.2.2-.3.3-.5s0-.4 0-.5-.7-1.6-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4s-1 1-1 2.5 1.1 2.9 1.2 3.1 2.1 3.2 5.1 4.5c.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3zM12 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4C2.7 15.6 2.2 13.8 2.2 12 2.2 6.6 6.6 2.2 12 2.2c2.6 0 5.1 1 6.9 2.9 1.8 1.8 2.9 4.3 2.9 6.9 0 5.4-4.4 9.8-9.8 9.8zM20.5 3.5C18.2 1.2 15.2 0 12 0 5.4 0 0 5.4 0 12c0 2.1.6 4.2 1.6 6L0 24l6.2-1.6c1.8 1 3.8 1.5 5.8 1.5 6.6 0 12-5.4 12-12 0-3.2-1.2-6.2-3.5-8.4z"/></svg>
+</a>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+<script>
+gsap.registerPlugin(ScrollTrigger);
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const mobile = matchMedia('(max-width:900px)').matches;
+
+/* smooth scroll */
+const lenis = new Lenis({lerp:.085});
+lenis.on('scroll', ScrollTrigger.update);
+gsap.ticker.add(t=>lenis.raf(t*1000)); gsap.ticker.lagSmoothing(0);
+lenis.stop();
+document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const h=a.getAttribute('href');if(h.length>1){e.preventDefault();lenis.scrollTo(h,{duration:1.8})}}));
+
+/* cursor */
+const cur=document.getElementById('cursor');
+const cx=gsap.quickTo(cur,'x',{duration:.4,ease:'power3'}),cy=gsap.quickTo(cur,'y',{duration:.4,ease:'power3'});
+addEventListener('mousemove',e=>{cx(e.clientX);cy(e.clientY)});
+document.querySelectorAll('.hov').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{cur.classList.add('big');cur.textContent='ver'});
+  el.addEventListener('mouseleave',()=>{cur.classList.remove('big');cur.textContent=''});
+});
+/* magnetic buttons */
+document.querySelectorAll('.mag').forEach(b=>{
+  b.addEventListener('mousemove',e=>{const r=b.getBoundingClientRect();gsap.to(b,{x:(e.clientX-r.left-r.width/2)*.3,y:(e.clientY-r.top-r.height/2)*.45,duration:.4,ease:'power3.out'})});
+  b.addEventListener('mouseleave',()=>gsap.to(b,{x:0,y:0,duration:.9,ease:'elastic.out(1,.4)'}));
+});
+
+/* menu */
+let open=false;const menu=document.getElementById('menu');
+const toggleMenu=()=>{
+  open=!open;document.body.classList.toggle('menu-open',open);
+  open?lenis.stop():lenis.start();
+  gsap.to(menu,{clipPath:open?'inset(0 0 0% 0)':'inset(0 0 100% 0)',duration:1.1,ease:'expo.inOut'});
+  if(open){gsap.fromTo('.menu nav a span',{yPercent:115},{yPercent:0,stagger:.07,duration:1.1,ease:'power4.out',delay:.4});
+    gsap.fromTo('.menu-side',{opacity:0,y:40},{opacity:1,y:0,duration:1,delay:.7,ease:'power3.out'});}
+};
+document.getElementById('menuBtn').onclick=toggleMenu;
+menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{if(open)toggleMenu()}));
+
+/* svg stroke prep */
+function prep(sel){document.querySelectorAll(sel).forEach(p=>{const L=p.getTotalLength();p.style.strokeDasharray=L;p.style.strokeDashoffset=L})}
+prep('.hz,.arcp,.b,#arc2');
+gsap.set('.aa',{opacity:0,y:30});
+gsap.set('.wordmark span',{yPercent:110});
+gsap.set('.tagline-caps > *',{opacity:0,y:14});
+gsap.set('#heroFoot,#cue',{opacity:0,y:24});
+gsap.set('#heroTitle .ln>span',{yPercent:115});
+gsap.set('.pre .name span',{yPercent:110});
+
+/* INTRO: preloader → logo builds */
+const intro=gsap.timeline({onComplete:()=>{lenis.start();gsap.to('#wa',{scale:1,duration:.8,ease:'back.out(2)'})}});
+const c={v:0};
+intro.to('.pre .name span',{yPercent:0,duration:.9,ease:'power4.out'})
+ .to('.pre .line',{scaleX:1,duration:1.5,ease:'power3.inOut'},0)
+ .to(c,{v:100,duration:1.5,ease:'power2.inOut',onUpdate:()=>document.getElementById('cnt').textContent=String(Math.round(c.v)).padStart(3,'0')},0)
+ .to('.pre .count,.pre .name',{opacity:0,duration:.3})
+ .to('.pre .top',{yPercent:-100,duration:1.2,ease:'expo.inOut'},'split')
+ .to('.pre .bot',{yPercent:100,duration:1.2,ease:'expo.inOut'},'split')
+ .to('.pre .line',{opacity:0,duration:.5},'split')
+ .to('.hz',{strokeDashoffset:0,duration:1.4,ease:'power3.inOut'},'split+=.2')
+ .to('.aa',{opacity:1,y:0,duration:1.4,ease:'power4.out'},'split+=.55')
+ .to('.arcp',{strokeDashoffset:0,duration:1.3,ease:'power3.inOut'},'split+=.8')
+ .to('.b',{strokeDashoffset:0,stagger:.14,duration:1.3,ease:'power2.inOut'},'split+=1')
+ .to('.wordmark span',{yPercent:0,duration:1.2,ease:'power4.out'},'split+=1.25')
+ .to('.tagline-caps > *',{opacity:1,y:0,stagger:.06,duration:.9,ease:'power3.out'},'split+=1.5')
+ .to('#heroFoot,#cue',{opacity:1,y:0,duration:1,ease:'power3.out'},'split+=1.7')
+ .set('.pre',{display:'none'});
+if(reduce) intro.progress(1);
+
+/* HERO: zoom through window into interior */
+function winOrigin(){const w=document.getElementById('win').getBoundingClientRect(),c=document.getElementById('city').getBoundingClientRect();return `${w.left+w.width/2-c.left}px ${w.top+w.height/2-c.top}px`}
+const heroTl=gsap.timeline({scrollTrigger:{trigger:'.hero',start:'top top',end:mobile?'+=150%':'+=260%',pin:true,scrub:1,invalidateOnRefresh:true}});
+heroTl.to('#heroFoot,#cue,.wordmark,.tagline-caps',{opacity:0,y:-40,duration:.2},0)
+ .to('#win',{opacity:1,duration:.08},.08)
+ .to('#city',{scale:mobile?30:46,transformOrigin:winOrigin,ease:'power3.in',duration:1},.12)
+ .to('#interior',{clipPath:'inset(0% 0% 0% 0%)',ease:'power2.inOut',duration:.45},.7)
+ .to('#interior img',{scale:1,ease:'none',duration:.9},.7)
+ .to('#heroTitle .ln>span',{yPercent:0,stagger:.08,ease:'power3.out',duration:.35},1.05)
+ .from('#heroSub',{opacity:0,y:30,duration:.3},1.2)
+ .to({}, {duration:.3});
+
+/* MANIFESTO: words fill */
+const mt=document.getElementById('manText');
+mt.innerHTML=mt.innerHTML.replace(/(<em[^>]*>.*?<\/em>)|([^\s<]+)/g,(m,em,w)=>em?em.replace(/>(.*?)</,(x,t)=>'>'+t.split(' ').map(s=>`<span class="w">${s}</span>`).join(' ')+'<'):`<span class="w">${w}</span>`);
+gsap.to('#manText .w',{color:'#171512',stagger:.1,ease:'none',scrollTrigger:{trigger:'#manText',start:'top 80%',end:'bottom 45%',scrub:true}});
+gsap.to('#manText .hl .w',{color:'#B8873B',stagger:.1,ease:'none',scrollTrigger:{trigger:'#manText',start:'top 70%',end:'bottom 45%',scrub:true}});
+gsap.utils.toArray('[data-speed]').forEach(el=>{
+  gsap.fromTo(el,{y:()=>innerHeight*parseFloat(el.dataset.speed)*-1},{y:()=>innerHeight*parseFloat(el.dataset.speed),ease:'none',scrollTrigger:{trigger:el.parentElement,start:'top bottom',end:'bottom top',scrub:true,invalidateOnRefresh:true}});
+});
+gsap.utils.toArray('.float-img').forEach(f=>gsap.from(f,{clipPath:'inset(100% 0 0 0)',duration:1.6,ease:'expo.out',scrollTrigger:{trigger:f,start:'top 90%'}}));
+gsap.from('.manifesto .sig',{opacity:0,y:40,duration:1.2,ease:'power3.out',scrollTrigger:{trigger:'.manifesto .sig',start:'top 90%'}});
+
+/* split headings + fade-ups */
+gsap.utils.toArray('h2.split').forEach(h=>gsap.from(h.querySelectorAll('.ln>span'),{yPercent:115,stagger:.12,duration:1.4,ease:'power4.out',scrollTrigger:{trigger:h,start:'top 82%'}}));
+gsap.utils.toArray('.fade-up,.eyebrow').forEach(el=>gsap.from(el,{opacity:0,y:40,duration:1.2,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 88%'}}));
+gsap.utils.toArray('.gold').forEach(g=>gsap.to(g,{backgroundPosition:'-200% 0',duration:6,repeat:-1,ease:'none'}));
+
+/* REAL ESTATE stacking */
+const cards=gsap.utils.toArray('.stack .card');
+cards.forEach((card,i)=>{
+  gsap.fromTo(card.querySelector('.img img'),{yPercent:-6},{yPercent:6,ease:'none',scrollTrigger:{trigger:card,start:'top bottom',end:'bottom top',scrub:true}});
+  gsap.from(card.querySelector('.img'),{clipPath:'inset(0 0 0 100%)',duration:1.6,ease:'expo.inOut',scrollTrigger:{trigger:card,start:'top 70%'}});
+  gsap.from(card.querySelector('.num span'),{yPercent:100,duration:1.3,ease:'power4.out',scrollTrigger:{trigger:card,start:'top 60%'}});
+  gsap.from(card.querySelectorAll('.caps,h3,p,li,.btn'),{y:50,opacity:0,stagger:.06,duration:1.1,ease:'power4.out',scrollTrigger:{trigger:card,start:'top 55%'}});
+  if(i<cards.length-1){
+    const nx={trigger:cards[i+1],start:'top bottom',end:'top top',scrub:true};
+    gsap.to(card,{scale:.9,rotateX:4,ease:'none',scrollTrigger:nx});
+    gsap.to(card.querySelector('.shade'),{opacity:.6,ease:'none',scrollTrigger:{...nx}});
+  }
+});
+
+/* ARQUITECTURA: plan → real */
+if(!mobile){
+  const pt=gsap.timeline({scrollTrigger:{trigger:'#arquitectura',start:'top top',end:'+=170%',pin:true,scrub:1}});
+  pt.from('.compare',{clipPath:'inset(12% 12% 12% 12%)',duration:.4})
+    .to('.compare .real',{clipPath:'inset(0 0 0 0%)',duration:1,ease:'none'},'+=.05')
+    .to('#bar',{left:'0%',duration:1,ease:'none'},'<')
+    .to('#checks li',{opacity:1,stagger:.3,duration:.25},'<');
+}else{
+  const st={trigger:'.compare',start:'top 75%',end:'bottom 25%',scrub:true};
+  gsap.to('.compare .real',{clipPath:'inset(0 0 0 0%)',ease:'none',scrollTrigger:st});
+  gsap.to('#bar',{left:'0%',ease:'none',scrollTrigger:{...st}});
+  gsap.to('#checks li',{opacity:1,stagger:.2,scrollTrigger:{trigger:'#checks',start:'top 85%'}});
+}
+
+/* TRAYECTORIA horizontal */
+const track=document.getElementById('track');
+const dist=()=>Math.max(0,track.scrollWidth-innerWidth);
+const hz=gsap.to(track,{x:()=>-dist(),ease:'none',scrollTrigger:{trigger:'#trayectoria',start:'top top',end:()=>'+='+dist(),pin:true,scrub:1,invalidateOnRefresh:true}});
+gsap.to('#rail',{scaleX:1,ease:'none',scrollTrigger:{trigger:'#trayectoria',start:'top top',end:()=>'+='+dist(),scrub:1,invalidateOnRefresh:true}});
+gsap.utils.toArray('.step').forEach(s=>{
+  const tl=gsap.timeline({scrollTrigger:{trigger:s,containerAnimation:hz,start:'left 88%'}});
+  tl.to(s.querySelector('.ph'),{clipPath:'inset(0% 0 0 0)',duration:1.4,ease:'expo.out'})
+    .to(s.querySelector('.ph img'),{scale:1,duration:1.8,ease:'expo.out'},0)
+    .from(s.querySelectorAll('.yr,h3,p'),{y:40,opacity:0,stagger:.08,duration:1,ease:'power3.out'},.2);
+});
+
+/* MENTORIAS dark + cards */
+ScrollTrigger.create({trigger:'#mentorias',start:'top 55%',end:'bottom 45%',toggleClass:{targets:document.body,className:'dark'}});
+gsap.from('.prog',{y:140,rotateX:-20,opacity:0,stagger:.15,duration:1.5,ease:'power4.out',scrollTrigger:{trigger:'.programs',start:'top 82%'}});
+if(!mobile) document.querySelectorAll('.prog').forEach(p=>{
+  p.addEventListener('mousemove',e=>{const r=p.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;
+    p.style.setProperty('--mx',x*100+'%');p.style.setProperty('--my',y*100+'%');
+    gsap.to(p,{rotateY:(x-.5)*12,rotateX:(.5-y)*10,duration:.5,ease:'power2.out'})});
+  p.addEventListener('mouseleave',()=>gsap.to(p,{rotateY:0,rotateX:0,duration:1.2,ease:'elastic.out(1,.5)'}));
+});
+
+/* CONTENIDO opposite columns */
+gsap.fromTo('#colA',{yPercent:8},{yPercent:-22,ease:'none',scrollTrigger:{trigger:'#contenido',start:'top bottom',end:'bottom top',scrub:true}});
+gsap.fromTo('#colB',{yPercent:-26},{yPercent:4,ease:'none',scrollTrigger:{trigger:'#contenido',start:'top bottom',end:'bottom top',scrub:true}});
+
+/* MI MUNDO */
+gsap.from('.hl',{scale:.4,opacity:0,stagger:.08,duration:1.1,ease:'back.out(1.8)',scrollTrigger:{trigger:'#hlRow',start:'top 85%'}});
+gsap.utils.toArray('.hl .ring').forEach(r=>gsap.to(r,{backgroundPosition:'-200% 0',duration:4,repeat:-1,ease:'none'}));
+
+/* FAQ */
+document.querySelectorAll('.q button').forEach(b=>b.onclick=()=>{
+  const q=b.parentElement,a=q.querySelector('.a'),on=q.classList.toggle('open');
+  gsap.to(a,{height:on?'auto':0,duration:.8,ease:'power3.inOut',onComplete:()=>ScrollTrigger.refresh()});
+});
+gsap.from('.q',{opacity:0,y:30,stagger:.1,duration:1,ease:'power3.out',scrollTrigger:{trigger:'#faq',start:'top 85%'}});
+
+/* FIRMA */
+const ft=gsap.timeline({scrollTrigger:{trigger:'#contacto',start:'top 60%'}});
+ft.to('#arc2',{strokeDashoffset:0,duration:2.2,ease:'power3.inOut'})
+  .to('#s1',{clipPath:'inset(-20% 0% -20% 0)',duration:2,ease:'power2.inOut'},'-=1.6')
+  .to('#s2',{clipPath:'inset(-20% 0% -20% 0)',duration:2,ease:'power2.inOut'},'-=.8')
+  .from('#bigBtn,.firma small',{y:40,opacity:0,stagger:.12,duration:1.1,ease:'power4.out'},'-=.7');
+
+addEventListener('load',()=>ScrollTrigger.refresh());
+</script>
+</body>
+</html>
