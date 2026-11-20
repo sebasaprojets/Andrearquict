@@ -88,7 +88,7 @@ em{font-style:italic}
 /* HERO */
 .hero{height:100vh;position:relative;background:var(--night);color:var(--cream);overflow:hidden}
 .hero::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 50% 45%,rgba(184,135,59,.16),transparent 60%);pointer-events:none}
-.city{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;will-change:transform;padding-bottom:6vh}
+.city{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding-bottom:6vh}
 .city{z-index:3}
 .logo-svg{width:min(760px,86vw);overflow:visible}
 .wordmark{font:400 clamp(26px,4.2vw,60px)/1 var(--f-caps);letter-spacing:.18em;margin-top:3.2vh;text-align:center;text-transform:uppercase;white-space:nowrap;padding-left:.18em}
@@ -109,7 +109,27 @@ em{font-style:italic}
 .interior .sub{position:absolute;right:48px;bottom:13vh;z-index:2;max-width:320px;color:#E9E1D4;font-size:16px}
 
 /* MANIFESTO */
-.manifesto{position:relative;padding:26vh 0 22vh;overflow:hidden}
+.manifesto{position:relative;padding:30vh 0 22vh;overflow:hidden;background:var(--cream);z-index:6;margin-top:-18vh;border-radius:50% 50% 0 0 / 26vw 26vw 0 0}
+.bigword{position:absolute;top:44%;left:0;white-space:nowrap;font:italic 300 21vw/1 var(--f-display);color:transparent;-webkit-text-stroke:1px rgba(184,135,59,.22);pointer-events:none;z-index:0;will-change:transform}
+.progress{position:fixed;top:0;left:0;height:2px;width:100%;background:var(--gold-grad);transform:scaleX(0);transform-origin:left;z-index:96;pointer-events:none}
+.band{background:var(--night);color:var(--cream);padding:30px 0;overflow:hidden;white-space:nowrap;position:relative;z-index:6}
+.band.gold-band{background:var(--gold);color:var(--night)}
+.band-track{display:inline-flex;will-change:transform}
+.band span{font:300 clamp(34px,4.6vw,74px)/1.1 var(--f-display);padding:0 34px;display:inline-flex;align-items:center;gap:68px}
+.band span i{font-style:italic;color:var(--gold-light)}
+.band.gold-band span i{color:#fff8e6}
+.band span::after{content:"";width:12px;height:12px;border:1px solid currentColor;transform:rotate(45deg);opacity:.7}
+.dims{position:absolute;inset:0;z-index:4;pointer-events:none;width:100%;height:100%}
+.dims path{stroke:#F6F0E6;stroke-width:1;fill:none}
+.dims text{fill:#F6F0E6;font:400 11px var(--f-caps);letter-spacing:.2em;opacity:0}
+.tray-bg{position:absolute;top:8vh;left:4vw;font:italic 300 24vw/1 var(--f-display);color:transparent;-webkit-text-stroke:1px rgba(184,135,59,.28);white-space:nowrap;pointer-events:none;will-change:transform}
+@property --ang{syntax:'<angle>';initial-value:0deg;inherits:false}
+.prog.feat::before{content:"";position:absolute;inset:0;padding:1px;background:conic-gradient(from var(--ang),transparent 0 62%,#E4C27F 80%,#fff3d0 84%,transparent 92%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;animation:spinb 4.5s linear infinite;pointer-events:none;z-index:3}
+@keyframes spinb{to{--ang:360deg}}
+.giant{background:var(--night);text-align:center;padding:8vh 0 3vh;overflow:hidden;white-space:nowrap;font:400 6.6vw/1 var(--f-caps);letter-spacing:.08em;padding-left:.08em}
+.giant span{display:inline-block;background:var(--gold-grad);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:gsheen 6s linear infinite}
+@keyframes gsheen{to{background-position:-200% 0}}
+.reel,.step .ph,.card .img img{will-change:transform}
 .manifesto p.big{position:relative;z-index:2;font:300 clamp(36px,5vw,82px)/1.1 var(--f-display);max-width:1180px}
 .manifesto .w{color:rgba(23,21,18,.12)}
 .float-img{position:absolute;z-index:1;overflow:hidden;will-change:transform}
@@ -271,6 +291,7 @@ footer a:hover{color:var(--gold-light)}
 </style>
 </head>
 <body>
+<div class="progress" id="progress"></div>
 <div class="cursor" id="cursor"></div>
 <div class="grain" aria-hidden="true"></div>
 
@@ -359,6 +380,7 @@ footer a:hover{color:var(--gold-light)}
 
 <!-- MANIFESTO -->
 <section class="manifesto" id="manif">
+  <div class="bigword" aria-hidden="true">Arquitecta · Agente · Mentora · Arquitecta ·</div>
   <div class="float-img fi-1" data-speed="-0.25"><img src="assets/p1.jpg" alt=""></div>
   <div class="float-img fi-2" data-speed="0.18"><img src="assets/depto-luz.jpg" alt=""></div>
   <div class="float-img fi-3" data-speed="-0.12"><img src="assets/p6.jpg" alt=""></div>
@@ -370,6 +392,7 @@ footer a:hover{color:var(--gold-light)}
 </section>
 
 <!-- REAL ESTATE -->
+<div class="band" aria-hidden="true"><div class="band-track"><span>Comprar</span><span><i>Vender</i></span><span>Alquilar</span><span><i>Invertir</i></span><span>Reformar</span><span><i>Habitar</i></span><span>Comprar</span><span><i>Vender</i></span><span>Alquilar</span><span><i>Invertir</i></span><span>Reformar</span><span><i>Habitar</i></span></div></div>
 <section id="real-estate">
   <div class="re-head"><div class="wrap">
     <div><p class="caps eyebrow">Real Estate</p><h2 class="split" style="margin-top:26px"><span class="ln"><span>Una propiedad no es un aviso.</span></span><span class="ln"><span>Es <em class="gold">un proyecto.</em></span></span></h2></div>
@@ -404,6 +427,12 @@ footer a:hover{color:var(--gold-light)}
   <div class="compare hov">
     <img class="dib" src="assets/plano-dibujo.jpg" alt="Arquitecta dibujando un plano">
     <img class="real" src="assets/plano-real.jpg" alt="Interior terminado">
+    <svg class="dims" viewBox="0 0 400 300" preserveAspectRatio="none" aria-hidden="true">
+      <path class="dl" d="M30 270 H370 M30 264 V276 M370 264 V276"/>
+      <path class="dl" d="M372 40 V250 M366 40 H378 M366 250 H378"/>
+      <path class="dl" d="M60 70 H190 V200 H60 Z"/>
+      <path class="dl" d="M220 110 A50 50 0 0 1 270 160"/>
+    </svg>
     <span class="lab l">El plano</span><span class="lab r">La realidad</span>
     <div class="bar" id="bar"></div>
   </div>
@@ -420,6 +449,7 @@ footer a:hover{color:var(--gold-light)}
 
 <!-- TRAYECTORIA -->
 <section class="tray" id="trayectoria">
+  <div class="tray-bg" aria-hidden="true">Trayectoria · Experiencia · Método</div>
   <div class="rail" id="rail"></div>
   <div class="tray-track" id="track">
     <div class="tray-head"><p class="caps eyebrow">Trayectoria que enseña</p><h2 style="margin-top:24px">Cada paso, <em class="gold">un piso más.</em></h2><p>De la mesa de dibujo a la calle, y de la calle a enseñar lo aprendido.</p></div>
@@ -430,6 +460,7 @@ footer a:hover{color:var(--gold-light)}
   </div>
 </section>
 
+<div class="band gold-band" aria-hidden="true"><div class="band-track"><span>Experiencia que <i>inspira</i></span><span>Trayectoria que <i>enseña</i></span><span>Experiencia que <i>inspira</i></span><span>Trayectoria que <i>enseña</i></span><span>Experiencia que <i>inspira</i></span><span>Trayectoria que <i>enseña</i></span></div></div>
 <!-- MENTORIAS -->
 <section class="ment" id="mentorias">
   <div class="ment-bg" data-speed="-0.2"><img src="assets/p12.jpg" alt=""></div>
@@ -448,7 +479,7 @@ footer a:hover{color:var(--gold-light)}
         <span class="caps tag">Más elegido</span><h3>Alquiler Temporario Rentable</h3><p>"Para alquilar rápido hay que hacer muchas visitas." Es mentira. El sistema para alquilar con menos visitas y mejores inquilinos.</p>
         <ul><li>Precio y posicionamiento</li><li>Anuncio y fotos que convierten</li><li>Filtro de inquilinos</li><li>Contratos, reservas y devoluciones</li></ul>
         <a class="btn mag" href="https://wa.me/message/U2M2Q7T2XWXMM1" target="_blank" rel="noopener">Inscribirme <span class="ar">→</span></a></div></article>
-      <article class="prog"><div class="pimg"><img src="assets/p4.jpg" alt=""></div><div class="in">
+      <article class="prog"><div class="pimg"><img src="assets/p4.jpg" alt="" style="object-position:center 45%"></div><div class="in">
         <span class="caps tag">Cupos limitados</span><h3>Mentoría 1:1</h3><p>Acompañamiento directo durante 8 semanas para armar tu cartera, tu marca y tus primeros cierres.</p>
         <ul><li>Sesiones individuales semanales</li><li>Plan de acción a medida</li><li>Revisión de tus operaciones</li><li>Acceso directo por WhatsApp</li></ul>
         <a class="btn mag" href="https://wa.me/message/U2M2Q7T2XWXMM1" target="_blank" rel="noopener">Aplicar <span class="ar">→</span></a></div></article>
@@ -510,6 +541,7 @@ footer a:hover{color:var(--gold-light)}
   <a class="btn mag" id="bigBtn" href="https://wa.me/message/U2M2Q7T2XWXMM1" target="_blank" rel="noopener">Escribime por WhatsApp <span class="ar">→</span></a>
   <small>Respondo personalmente · Buenos Aires</small>
 </section>
+<div class="giant" id="giant" aria-hidden="true">ANDREA ANDRADE</div>
 <footer>
   <span class="caps" style="letter-spacing:.3em">Andrea Andrade</span>
   <span class="fl"><a href="https://www.instagram.com/andrea.andrade.ruiz/" target="_blank" rel="noopener">Instagram</a><a href="https://www.threads.net/@andrea.andrade.ruiz" target="_blank" rel="noopener">Threads</a><a href="https://wa.me/message/U2M2Q7T2XWXMM1" target="_blank" rel="noopener">WhatsApp</a></span>
@@ -562,7 +594,7 @@ menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{if(open)to
 
 /* svg stroke prep */
 function prep(sel){document.querySelectorAll(sel).forEach(p=>{const L=p.getTotalLength();p.style.strokeDasharray=L;p.style.strokeDashoffset=L})}
-prep('.hz,.b,#arc2');
+prep('.hz,.b,#arc2,.dims .dl');
 const wm=document.getElementById('wordmark');
 wm.innerHTML=wm.textContent.split('').map(ch=>ch===' '?'<span class="ch">&nbsp;</span>':`<span class="ch">${ch}</span>`).join('');
 gsap.set('.aa',{y:230});
@@ -620,16 +652,45 @@ if(!mobile&&!reduce){
 }
 
 /* HERO: zoom through window into interior */
-function winOrigin(){const w=document.getElementById('win').getBoundingClientRect(),c=document.getElementById('city').getBoundingClientRect();return `${w.left+w.width/2-c.left}px ${w.top+w.height/2-c.top}px`}
-const heroTl=gsap.timeline({scrollTrigger:{trigger:'.hero',start:'top top',end:mobile?'+=150%':'+=260%',pin:true,scrub:1,invalidateOnRefresh:true}});
-heroTl.to('#heroFoot,#cue,.wordmark,.tagline-caps,#wmRule,.hud',{opacity:0,y:-40,duration:.2},0)
- .to('#win',{opacity:1,duration:.08},.08)
- .to('#city',{scale:mobile?30:46,transformOrigin:winOrigin,ease:'power3.in',duration:1},.12)
- .to('#interior',{clipPath:'inset(0% 0% 0% 0%)',ease:'power2.inOut',duration:.45},.7)
- .to('#interior img',{scale:1,ease:'none',duration:.9},.7)
- .to('#heroTitle .ln>span',{yPercent:0,stagger:.08,ease:'power3.out',duration:.35},1.05)
- .from('#heroSub',{opacity:0,y:30,duration:.3},1.2)
- .to({}, {duration:.3});
+/* window geometry measured relative to the (unscaled) hero */
+const S=mobile?5:7; let W0={cx:innerWidth*.6,cy:innerHeight*.45,w:16,h:20};
+function measureWin(){
+  const city=document.getElementById('city'),prev=city.style.transform;city.style.transform='none';
+  const w=document.getElementById('win').getBoundingClientRect(),c=city.getBoundingClientRect();
+  W0={cx:w.left+w.width/2-c.left,cy:w.top+w.height/2-c.top,w:w.width,h:w.height};city.style.transform=prev;
+}
+measureWin();ScrollTrigger.addEventListener('refreshInit',measureWin);
+const winClip=()=>{const hw=W0.w*S/2,hh=W0.h*S/2;return `inset(${W0.cy-hh}px ${innerWidth-(W0.cx+hw)}px ${innerHeight-(W0.cy+hh)}px ${W0.cx-hw}px)`};
+gsap.set('#interior',{clipPath:winClip(),autoAlpha:0});
+const heroTl=gsap.timeline({scrollTrigger:{trigger:'.hero',start:'top top',end:mobile?'+=170%':'+=240%',pin:true,scrub:1.2,invalidateOnRefresh:true}});
+heroTl.to('#heroFoot,#cue,.wordmark,.tagline-caps,#wmRule,.hud',{opacity:0,y:-40,stagger:.02,duration:.18},0)
+ .to('#win',{opacity:1,duration:.1},.06)
+ .to('#city',{scale:S,transformOrigin:()=>`${W0.cx}px ${W0.cy}px`,ease:'power2.in',duration:.55},.1)
+ .to('#dust',{opacity:0,duration:.3},.2)
+ .set('#interior',{autoAlpha:1},.6)
+ .fromTo('#interior',{clipPath:winClip},{clipPath:'inset(0px 0px 0px 0px)',ease:'power3.inOut',duration:.5,immediateRender:false},.6)
+ .to('#city',{opacity:0,duration:.25},.62)
+ .fromTo('#interior img',{scale:1.6},{scale:1.05,ease:'power2.out',duration:.75,immediateRender:false},.6)
+ .to('#heroTitle .ln>span',{yPercent:0,stagger:.08,ease:'power3.out',duration:.3},1)
+ .from('#heroSub',{opacity:0,y:30,duration:.25},1.15)
+ .to({}, {duration:.6});
+/* manifesto arch rises over the hero */
+gsap.to('.manifesto',{borderRadius:'0% 0% 0 0 / 0vw 0vw 0 0',ease:'none',scrollTrigger:{trigger:'.manifesto',start:'top bottom',end:'top 15%',scrub:true}});
+gsap.fromTo('.bigword',{xPercent:5},{xPercent:-45,ease:'none',scrollTrigger:{trigger:'.manifesto',start:'top bottom',end:'bottom top',scrub:true}});
+
+/* scroll progress */
+gsap.to('#progress',{scaleX:1,ease:'none',scrollTrigger:{start:0,end:'max',scrub:.3}});
+
+/* velocity marquees + skew */
+const bands=gsap.utils.toArray('.band-track').map((t,i)=>gsap.to(t,{xPercent:-50,repeat:-1,duration:mobile?18:28,ease:'none'}));
+const skewTo=gsap.quickTo('.reel, .step .ph',"skewY",{duration:.5,ease:'power3'});
+let dir=1;
+ScrollTrigger.create({start:0,end:'max',onUpdate:self=>{
+  const v=self.getVelocity();dir=self.direction;
+  bands.forEach((b,i)=>{const d=(i%2?-1:1)*dir;gsap.to(b,{timeScale:d*(1+Math.min(Math.abs(v)/350,6)),duration:.25,overwrite:true});gsap.to(b,{timeScale:d,duration:1.2,delay:.25,overwrite:false})});
+  if(!mobile) skewTo(gsap.utils.clamp(-6,6,v/-300));
+}});
+gsap.from('.band span',{yPercent:100,opacity:0,stagger:.03,duration:1.2,ease:'power4.out',scrollTrigger:{trigger:'.band',start:'top 95%'}});
 
 /* MANIFESTO: words fill */
 const mt=document.getElementById('manText');
@@ -665,6 +726,7 @@ cards.forEach((card,i)=>{
 if(!mobile){
   const pt=gsap.timeline({scrollTrigger:{trigger:'#arquitectura',start:'top top',end:'+=170%',pin:true,scrub:1}});
   pt.from('.compare',{clipPath:'inset(12% 12% 12% 12%)',duration:.4})
+    .to('.dims .dl',{strokeDashoffset:0,stagger:.08,duration:.4,ease:'power2.inOut'},.15)
     .to('.compare .real',{clipPath:'inset(0 0 0 0%)',duration:1,ease:'none'},'+=.05')
     .to('#bar',{left:'0%',duration:1,ease:'none'},'<')
     .to('#checks li',{opacity:1,stagger:.3,duration:.25},'<');
@@ -673,6 +735,7 @@ if(!mobile){
   gsap.to('.compare .real',{clipPath:'inset(0 0 0 0%)',ease:'none',scrollTrigger:st});
   gsap.to('#bar',{left:'0%',ease:'none',scrollTrigger:{...st}});
   gsap.to('#checks li',{opacity:1,stagger:.2,scrollTrigger:{trigger:'#checks',start:'top 85%'}});
+  gsap.to('.dims .dl',{strokeDashoffset:0,stagger:.1,duration:1.4,ease:'power2.inOut',scrollTrigger:{trigger:'.compare',start:'top 75%'}});
 }
 
 /* TRAYECTORIA horizontal */
@@ -690,6 +753,9 @@ gsap.utils.toArray('.step').forEach(s=>{
 /* MENTORIAS dark + cards */
 ScrollTrigger.create({trigger:'#mentorias',start:'top 55%',end:'bottom 45%',toggleClass:{targets:document.body,className:'dark'}});
 gsap.from('.prog',{y:140,rotateX:-20,opacity:0,stagger:.15,duration:1.5,ease:'power4.out',scrollTrigger:{trigger:'.programs',start:'top 82%'}});
+gsap.from('.prog .pimg',{clipPath:'inset(100% 0 0 0)',stagger:.15,duration:1.6,ease:'expo.inOut',delay:.2,scrollTrigger:{trigger:'.programs',start:'top 82%'}});
+gsap.from('.prog .pimg img',{scale:1.4,stagger:.15,duration:2,ease:'expo.out',delay:.2,scrollTrigger:{trigger:'.programs',start:'top 82%'}});
+gsap.from('.prog ul li',{x:-20,opacity:0,stagger:.04,duration:.8,ease:'power3.out',scrollTrigger:{trigger:'.programs',start:'top 60%'}});
 if(!mobile) document.querySelectorAll('.prog').forEach(p=>{
   p.addEventListener('mousemove',e=>{const r=p.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;
     p.style.setProperty('--mx',x*100+'%');p.style.setProperty('--my',y*100+'%');
@@ -718,6 +784,18 @@ ft.to('#arc2',{strokeDashoffset:0,duration:2.2,ease:'power3.inOut'})
   .to('#s1',{clipPath:'inset(-20% 0% -20% 0)',duration:2,ease:'power2.inOut'},'-=1.6')
   .to('#s2',{clipPath:'inset(-20% 0% -20% 0)',duration:2,ease:'power2.inOut'},'-=.8')
   .from('#bigBtn,.firma small',{y:40,opacity:0,stagger:.12,duration:1.1,ease:'power4.out'},'-=.7');
+
+/* trayectoria background word */
+gsap.fromTo('.tray-bg',{xPercent:0},{xPercent:-35,ease:'none',scrollTrigger:{trigger:'#trayectoria',start:'top bottom',end:()=>'+='+(dist()+innerHeight*2),scrub:true,invalidateOnRefresh:true}});
+
+/* reels zoom-in as they enter */
+gsap.utils.toArray('.reel img').forEach(im=>gsap.fromTo(im,{scale:1.35},{scale:1,ease:'none',scrollTrigger:{trigger:im.parentElement,start:'top bottom',end:'center center',scrub:true}}));
+gsap.from('.cont .intro > *',{y:50,opacity:0,stagger:.1,duration:1.2,ease:'power4.out',scrollTrigger:{trigger:'#contenido',start:'top 70%'}});
+
+/* giant footer wordmark */
+const gi=document.getElementById('giant');
+gi.innerHTML=gi.textContent.split('').map(ch=>ch===' '?'<span>&nbsp;</span>':`<span>${ch}</span>`).join('');
+gsap.from('#giant span',{yPercent:100,opacity:0,rotateX:-80,stagger:.04,duration:1.4,ease:'power4.out',scrollTrigger:{trigger:'#giant',start:'top 92%'}});
 
 addEventListener('load',()=>ScrollTrigger.refresh());
 </script>
